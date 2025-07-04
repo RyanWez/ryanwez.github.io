@@ -8,7 +8,7 @@
 
 A sleek and modern personal portfolio website built with HTML, CSS, and JavaScript. It features a dark theme with glassmorphism effects and smooth animations to showcase my projects and skills as an AI enthusiast and project creator.
 
-**Live Demo:** [https://ryanwez.vercel.app](https://ryanwez.vercel.app)
+**Live Demo:** [https://ryanwez.github.io/](https://ryanwez.github.io/)
 
 ---
 
