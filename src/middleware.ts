@@ -13,7 +13,7 @@ export async function middleware(req: NextRequest) {
     }
   }
 
-  if (pathname === '/admin') {
+  if (pathname === '/admin' && !pathname.startsWith('/admin/dashboard')) {
     if (session.isLoggedIn) {
       return NextResponse.redirect(new URL('/admin/dashboard', req.url));
     }
