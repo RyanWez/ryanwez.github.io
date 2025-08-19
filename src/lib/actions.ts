@@ -4,9 +4,9 @@ import { z } from 'zod';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
-import prisma from '@/lib/prisma';
+import { prisma } from '@/lib/prisma';
 import { loginSchema, projectSchema } from '@/lib/schemas';
-import { getIronSession, sealSession, unsealSession } from '@/lib/session';
+import { getIronSession, sealSession } from '@/lib/session';
 
 export async function getProjects() {
   try {
