@@ -1,9 +1,11 @@
+'use server';
+
 import 'server-only';
 import { cookies, type ReadonlyRequestCookies } from 'next/headers';
-import { unsealData, sealData } from 'iron-session';
+import { unsealData, sealData } from '@hapi/iron';
 import { type SessionData } from '@/lib/definitions';
 
-const sessionPassword = process.env.SESSION_SECRET as string;
+const sessionPassword = process.env.SESSION_SECRET as string || "this-is-a-default-dev-secret-32-characters";
 if (!sessionPassword || sessionPassword.length < 32) {
   throw new Error('Missing SESSION_SECRET or SESSION_SECRET is not 32 characters long.');
 }

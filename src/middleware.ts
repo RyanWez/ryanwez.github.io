@@ -3,7 +3,7 @@ import { getIronSession } from '@/lib/session';
 
 export async function middleware(req: NextRequest) {
   const res = NextResponse.next();
-  const session = await getIronSession(req, res);
+  const session = await getIronSession(req.cookies);
 
   const { pathname } = req.nextUrl;
 
