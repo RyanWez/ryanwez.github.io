@@ -1,3 +1,5 @@
+export const runtime = 'nodejs';
+
 import AdminLoginForm from '@/components/admin/AdminLoginForm';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Code2 } from 'lucide-react';
