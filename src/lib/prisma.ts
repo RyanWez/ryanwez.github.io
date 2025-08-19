@@ -1,5 +1,17 @@
-// When using Prisma's Data Proxy, it's recommended to instantiate a new client for each request
-// rather than using a global singleton. The Data Proxy handles connection pooling.
-import { PrismaClient } from '@prisma/client/edge';
+// The singleton pattern is used to ensure that only one instance of PrismaClient is created.
+// This is important in serverless environments to prevent connection exhaustion.
+import { PrismaClient } from '@prisma/client';
 
-export const prisma = new PrismaClient();
+declare global {
+  // allow global `var` declarations
+  // eslint-disable-next-line no-var
+  var prisma: PrismaClient | undefined;
+}
+
+export const prisma =
+  global.prisma ||
+  new PrismaClient({
+    log: ['query'],
+  });
+
+if (process.env.NODE_ENV !== 'production') global.prisma = prisma;
