@@ -4,17 +4,18 @@ import { z } from 'zod';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
-import { prisma } from '@/lib/prisma';
+import { sql } from '@/lib/db';
 import { loginSchema, projectSchema } from '@/lib/schemas';
 import { getIronSession, sealSession } from '@/lib/session';
+import type { ProjectWithId } from './definitions';
 
-export async function getProjects() {
+export async function getProjects(): Promise<ProjectWithId[]> {
   try {
-    const projects = await prisma.project.findMany({
-      orderBy: {
-        createdAt: 'desc',
-      },
-    });
+    const projects = await sql<ProjectWithId[]>`
+      SELECT id, title, description, technologies, "liveDemoUrl", "sourceCodeUrl", "imageUrl", "createdAt"
+      FROM "Project"
+      ORDER BY "createdAt" DESC
+    `;
     return projects;
   } catch (error) {
     console.error('Database Error:', error);
@@ -22,13 +23,15 @@ export async function getProjects() {
   }
 }
 
-export async function getProjectById(id: string) {
+export async function getProjectById(id: string): Promise<ProjectWithId | null> {
     if (!id) return null;
     try {
-        const project = await prisma.project.findUnique({
-            where: { id },
-        });
-        return project;
+        const result = await sql<ProjectWithId[]>`
+          SELECT id, title, description, technologies, "liveDemoUrl", "sourceCodeUrl", "imageUrl", "createdAt"
+          FROM "Project"
+          WHERE id = ${id}
+        `;
+        return result[0] || null;
     } catch (error) {
         console.error('Database Error:', error);
         throw new Error('Failed to fetch project.');
@@ -92,10 +95,13 @@ export async function createProject(data: z.infer<typeof projectSchema>) {
     throw new Error('Invalid project data.');
   }
   
+  const { title, description, technologies, liveDemoUrl, sourceCodeUrl, imageUrl } = validatedFields.data;
+
   try {
-    await prisma.project.create({
-      data: validatedFields.data
-    });
+    await sql`
+      INSERT INTO "Project" (title, description, technologies, "liveDemoUrl", "sourceCodeUrl", "imageUrl")
+      VALUES (${title}, ${description}, ${technologies}, ${liveDemoUrl}, ${sourceCodeUrl}, ${imageUrl || null})
+    `;
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to create project.');
@@ -112,12 +118,20 @@ export async function updateProject(id: string, data: z.infer<typeof projectSche
   if (!validatedFields.success) {
     throw new Error('Invalid project data.');
   }
+  
+  const { title, description, technologies, liveDemoUrl, sourceCodeUrl, imageUrl } = validatedFields.data;
 
   try {
-    await prisma.project.update({
-      where: { id },
-      data: validatedFields.data,
-    });
+    await sql`
+      UPDATE "Project"
+      SET title = ${title},
+          description = ${description},
+          technologies = ${technologies},
+          "liveDemoUrl" = ${liveDemoUrl},
+          "sourceCodeUrl" = ${sourceCodeUrl},
+          "imageUrl" = ${imageUrl || null}
+      WHERE id = ${id}
+    `;
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to update project.');
@@ -131,9 +145,10 @@ export async function deleteProject(id: string) {
   await verifyAuth();
 
   try {
-    await prisma.project.delete({
-      where: { id },
-    });
+    await sql`
+      DELETE FROM "Project"
+      WHERE id = ${id}
+    `;
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to delete project.');
