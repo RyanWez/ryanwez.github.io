@@ -25,3 +25,7 @@ export async function middleware(req: NextRequest) {
 export const config = {
   matcher: ['/admin/:path*'],
 };
+
+// This forces the middleware to run on the Node.js runtime.
+// https://nextjs.org/docs/app/api-reference/file-conventions/middleware#unstable_allowdynamic
+export const unstable_allowDynamic = true;
