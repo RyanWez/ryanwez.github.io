@@ -1,6 +1,8 @@
 import { type NextRequest, NextResponse } from 'next/server';
 import { getIronSession } from '@/lib/session';
 
+export const runtime = 'nodejs';
+
 export async function middleware(req: NextRequest) {
   const res = NextResponse.next();
   const session = await getIronSession(req.cookies);
