@@ -4,7 +4,9 @@
 
 A modern, responsive portfolio website showcasing my journey as an AI enthusiast and project creator. Built with Next.js 14 and featuring a sleek dark theme with glassmorphism effects and smooth animations.
 
-![Portfolio Preview](screenshot.png)
+![Portfolio Preview]<img width="1917" height="988" alt="image" src="https://github.com/user-attachments/assets/83e506d4-f4dc-420b-8a2a-1f1654d8c082" />
+
+
 
 ## 🚀 Key Features
 
