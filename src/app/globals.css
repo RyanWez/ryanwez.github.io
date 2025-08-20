@@ -66,6 +66,17 @@
     scroll-behavior: smooth;
     scroll-padding-top: 100px;
   }
+  [data-inert="true"] {
+    pointer-events: none;
+    cursor: default;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+  [data-inert="true"] a,
+  [data-inert="true"] button {
+    visibility: hidden;
+  }
 }
 
 @layer utilities {

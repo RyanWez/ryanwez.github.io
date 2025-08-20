@@ -122,7 +122,7 @@ const Navbar = () => {
         <div 
           id="mobile-menu"
           className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isActive ? 'max-h-screen' : 'max-h-0'}`}
-          aria-hidden={!isActive}
+          data-inert={!isActive}
         >
             <div className="mt-2 p-4 bg-background/50 backdrop-blur-lg rounded-2xl">
                 <div className="flex flex-col items-center gap-4">
