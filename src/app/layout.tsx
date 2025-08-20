@@ -7,7 +7,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://ryanwez.vercel.app'),
+  metadataBase: new URL('https://ryanwez.github.io'),
   title: "RyanWez - AI Enthusiast & Project Creator",
   description: "The personal portfolio of RyanWez, an AI Enthusiast and Project Creator showcasing modern web applications and intelligent chatbots. Explore projects like SayarKaung, Employee-MM, and MiYanMar AI.",
   keywords: ["RyanWez", "AI Enthusiast", "Web Developer", "Project Creator", "React", "Next.js", "TypeScript", "Portfolio"],
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://ryanwez.vercel.app",
+    url: "https://ryanwez.github.io",
     title: "RyanWez - AI Enthusiast & Project Creator",
     description: "The personal portfolio of RyanWez, an AI Enthusiast and Project Creator showcasing modern web applications and intelligent chatbots.",
     siteName: "RyanWez Portfolio",
