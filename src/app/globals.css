@@ -25,8 +25,8 @@
     --ring: 238 84% 67%;
     --radius: 1rem;
 
-    --glass-bg: rgba(255, 255, 255, 0.5);
-    --glass-border: rgba(0, 0, 0, 0.1);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
   }
 
   .dark {
@@ -138,7 +138,9 @@
 
 .glass {
   background: var(--glass-bg);
-  @apply backdrop-blur-lg border rounded-2xl;
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  border-radius: 1rem;
 }
 
 ::view-transition-old(root),
