@@ -10,44 +10,45 @@
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 200 100% 70%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 220 100% 75%;
-    --secondary-foreground: 0 0% 98%;
+    --primary: 238 84% 67%;    /* Based on --accent-primary: #6366f1 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 282 89% 65%;  /* Based on --accent-secondary: #a855f7 */
+    --secondary-foreground: 0 0% 100%;
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+    --accent: 238 84% 67%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
+    --ring: 238 84% 67%;
     --radius: 1rem;
 
     --glass-bg: rgba(255, 255, 255, 0.5);
+    --glass-border: rgba(0, 0, 0, 0.1);
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 200 100% 70%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 220 100% 75%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
+    --background: 240 29% 5%;    /* --bg-primary: #0a0a0f */
+    --foreground: 0 0% 100%;     /* --text-primary: #ffffff */
+    --card: 240 24% 10%;         /* --bg-secondary: #141420 */
+    --card-foreground: 0 0% 100%;
+    --popover: 240 24% 10%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 238 84% 67%;      /* --accent-primary: #6366f1 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 282 89% 65%;    /* --accent-secondary: #a855f7 */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 240 24% 10%;
+    --muted-foreground: 240 5% 70%;  /* --text-secondary: #a8a8b3 */
+    --accent: 238 84% 67%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 100% / 0.1;
-    --input: 240 3.7% 15.9%;
-    --ring: 200 100% 70%;
+    --border: 0 0% 100% / 0.1;   /* --glass-border: rgba(255, 255, 255, 0.1) */
+    --input: 240 24% 10%;
+    --ring: 238 84% 67%;
     
     --glass-bg: rgba(255, 255, 255, 0.05);
   }
