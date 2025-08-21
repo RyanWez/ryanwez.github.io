@@ -63,7 +63,6 @@
     @apply text-foreground;
     background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
     background-attachment: fixed;
-    overflow-x: hidden;
     transition: background 0.5s ease, color 0.5s ease;
   }
   .dark body {
@@ -79,10 +78,6 @@
     user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
-  }
-  [data-inert="true"] a,
-  [data-inert="true"] button {
-    visibility: hidden;
   }
 }
 
