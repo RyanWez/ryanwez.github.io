@@ -3,6 +3,7 @@ import Link from 'next/link';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 import { cn } from '@/lib/utils';
 import dynamic from 'next/dynamic';
+import { AnimatedWavyText } from './magicui/animated-wavy-text';
 
 const ParticlesBackground = dynamic(() => import('./ParticlesBackground'), {
   ssr: false,
@@ -16,7 +17,7 @@ const Hero = () => {
        <ParticlesBackground />
       <div className={cn("text-center z-10 fade-in-element", { 'is-visible': inView })}>
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4">
-          Hi, I&apos;m <span className="gradient-text">RyanWez</span>
+          Hi, I&apos;m <AnimatedWavyText text="RyanWez" />
         </h1>
         <p className="text-xl md:text-2xl lg:text-3xl text-foreground/80 mb-8">
           AI Enthusiast & Project Creator
