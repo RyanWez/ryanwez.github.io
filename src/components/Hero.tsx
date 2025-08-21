@@ -13,7 +13,7 @@ const Hero = () => {
   const [ref, inView] = useIntersectionObserver({ threshold: 0.1, triggerOnce: true });
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative p-4 overflow-hidden" ref={ref}>
+    <section id="home" className="min-h-screen flex items-center justify-center relative p-4" ref={ref}>
        <ParticlesBackground />
       <div className={cn("text-center z-10 fade-in-element", { 'is-visible': inView })}>
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4">
