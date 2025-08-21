@@ -18,13 +18,8 @@ const TelegramIcon = (props: IconProps) => (
 )
 
 const socialLinks = [
-<<<<<<< HEAD
     { name: "Facebook", href: "https://www.facebook.com/ryanwez0", icon: <FacebookIcon className="w-6 h-6"/>, hoverColor: 'hover:bg-[#1877F2]' },
     { name: "Telegram", href: "https://t.me/RyanWez", icon: <TelegramIcon className="w-6 h-6"/>, hoverColor: 'hover:bg-[#2AABEE]' },
-=======
-    { href: "https://www.facebook.com/ryanwez0", icon: <FacebookIcon className="w-6 h-6"/>, hoverColor: 'hover:bg-[#1877F2]' },
-    { href: "https://t.me/RyanWez", icon: <TelegramIcon className="w-6 h-6"/>, hoverColor: 'hover:bg-[#2AABEE]' },
->>>>>>> origin/main
 ];
 
 const Contact = () => {
@@ -32,19 +27,11 @@ const Contact = () => {
     <>
       <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">Get in Touch</h2>
       <p className="text-xl text-foreground/80 mb-8 max-w-2xl mx-auto">
-<<<<<<< HEAD
         I'm always interested in new opportunities and collaborations. Feel free to reach out!
       </p>
       <div className="flex gap-6 justify-center">
         {socialLinks.map(link => (
           <Link key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" aria-label={`My ${link.name} profile`} className={`w-14 h-14 flex items-center justify-center rounded-full glass text-foreground transition-all duration-300 hover:text-white hover:translate-y-[-5px] hover:shadow-lg hover:shadow-primary/20 ${link.hoverColor}`}>
-=======
-        I&apos;m always interested in new opportunities and collaborations. Feel free to reach out!
-      </p>
-      <div className="flex gap-6 justify-center">
-        {socialLinks.map(link => (
-          <Link key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" className={`w-14 h-14 flex items-center justify-center rounded-full glass text-foreground transition-all duration-300 hover:text-white hover:translate-y-[-5px] hover:shadow-lg hover:shadow-primary/20 ${link.hoverColor}`}>
->>>>>>> origin/main
             {link.icon}
           </Link>
         ))}

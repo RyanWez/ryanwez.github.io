@@ -90,11 +90,7 @@ const Navbar = () => {
             <Link href="#home" className="flex items-center" onClick={closeMenu}>
                 <Image 
                   src="/mona.webp" 
-<<<<<<< HEAD
                   alt="RyanWez portfolio logo" 
-=======
-                  alt="RyanWez" 
->>>>>>> origin/main
                   width={38} 
                   height={38}
                   priority
