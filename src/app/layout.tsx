@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "RyanWez - AI Enthusiast & Project Creator",
   description: "The personal portfolio of RyanWez, an AI Enthusiast and Project Creator showcasing modern web applications and intelligent chatbots. Explore projects like SayarKaung, Employee-MM, and MiYanMar AI.",
-  keywords: ["RyanWez", "AI Enthusiast", "Web Developer", "Project Creator", "React", "Next.js", "TypeScript", "Portfolio", "Myanmar AI developer", "Next.js developer in Myanmar", "Telegram Bot Developer"],
+  keywords: ["RyanWez", "Ryan Wez", "AI Enthusiast", "Web Developer", "Project Creator", "React", "Next.js", "TypeScript", "Portfolio", "Myanmar AI developer", "Next.js developer in Myanmar", "Telegram Bot Developer"],
   authors: [{ name: "RyanWez", url: siteUrl }],
   creator: "RyanWez",
   publisher: "RyanWez",
