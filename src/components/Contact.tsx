@@ -34,7 +34,7 @@ const Contact = () => {
     <>
       <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">Get in Touch</h2>
       <p className="text-xl text-foreground/80 mb-8 max-w-2xl mx-auto">
-        I'm always interested in new opportunities and collaborations. Feel free to reach out!
+        I&apos;m always interested in new opportunities and collaborations. Feel free to reach out!
       </p>
       <div className="flex gap-6 justify-center">
         {socialLinks.map(link => (
