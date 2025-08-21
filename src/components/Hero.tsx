@@ -3,9 +3,9 @@ import Link from 'next/link';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 import { cn } from '@/lib/utils';
 import dynamic from 'next/dynamic';
-import { AnimatedWavyText } from './magicui/animated-wavy-text';
+import AnimatedWavyText from "@/components/magicui/animated-wavy-text";
 
-const ParticlesBackground = dynamic(() => import('./ParticlesBackground'), {
+const ParticlesBackground = dynamic(() => import('@/components/ParticlesBackground'), {
   ssr: false,
 });
 

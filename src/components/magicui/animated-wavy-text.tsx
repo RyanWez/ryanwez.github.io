@@ -1,74 +1,63 @@
+
 "use client";
 
-import { motion, Variants } from "framer-motion";
+import { motion, Variants, HTMLMotionProps } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-interface WavyTextProps {
+interface AnimatedWavyTextProps extends HTMLMotionProps<"div"> {
   text: string;
-  delay?: number;
-  duration?: number;
   className?: string;
-  stagger?: number;
+  textClassName?: string;
 }
 
-export function AnimatedWavyText({
+const defaultVariants: Variants = {
+  hidden: { y: 10, opacity: 0 },
+  visible: { y: 0, opacity: 1 },
+};
+
+const AnimatedWavyText = ({
   text,
-  delay = 0,
-  duration = 0.05,
-  stagger = 0.02,
   className,
-}: WavyTextProps) {
-  const letters = Array.from(text);
-
-  const container: Variants = {
-    hidden: {
-      opacity: 0,
-    },
-    visible: (i: number = 1) => ({
-      opacity: 1,
-      transition: {
-        staggerChildren: stagger,
-        delayChildren: i * delay,
-      },
-    }),
-  };
-
-  const child: Variants = {
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        damping: 12,
-        stiffness: 200,
-        duration,
-      },
-    },
-    hidden: {
-      opacity: 0,
-      y: 20,
-      transition: {
-        type: "spring",
-        damping: 12,
-        stiffness: 200,
-        duration,
-      },
-    },
-  };
+  textClassName,
+  ...props
+}: AnimatedWavyTextProps) => {
+  const characters = Array.from(text);
 
   return (
-    <motion.h1
-      style={{ display: "flex", overflow: "hidden" }}
-      variants={container}
+    <motion.div
       initial="hidden"
       animate="visible"
-      className={cn("gradient-text", className)}
+      transition={{ staggerChildren: 0.05 }}
+      aria-label={text}
+      className={cn(
+        "inline-block",
+        className,
+      )}
+      {...props}
     >
-      {letters.map((letter, index) => (
-        <motion.span key={index} variants={child}>
-          {letter === " " ? "\u00A0" : letter}
+      {characters.map((char, index) => (
+        <motion.span
+          key={`${char}-${index}`}
+          variants={defaultVariants}
+          transition={{
+            duration: 0.5,
+            ease: [0.4, 0.0, 0.2, 1],
+            y: {
+              type: "spring",
+              damping: 15,
+              stiffness: 200,
+            },
+          }}
+          className={cn(
+            "gradient-text inline-block",
+            textClassName,
+          )}
+        >
+          {char === " " ? "\u00A0" : char}
         </motion.span>
       ))}
-    </motion.h1>
+    </motion.div>
   );
-}
+};
+
+export default AnimatedWavyText;
