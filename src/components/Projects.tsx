@@ -1,6 +1,8 @@
 'use client';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import useIntersectionObserver from '@/hooks/useIntersectionObserver';
+import { cn } from '@/lib/utils';
 
 interface Project {
   id: number;
@@ -11,10 +13,19 @@ interface Project {
   large?: boolean;
 }
 
-const ProjectCard = ({ project }: { project: Project }) => {
+const ProjectCard = ({ project, index }: { project: Project, index: number }) => {
+  const [ref, inView] = useIntersectionObserver({ threshold: 0.1, triggerOnce: true });
+  
   return (
-    <div className={`group relative ${project.large ? 'lg:col-span-2' : ''}`}>
-      <div className="glass h-full p-8 rounded-2xl flex flex-col group-hover:translate-y-[-8px] group-hover:scale-103 group-hover:shadow-2xl group-hover:shadow-primary/20 relative overflow-hidden transition-transform duration-300 ease-in-out will-change-transform">
+    <div 
+      ref={ref}
+      className={cn(
+        `group relative slide-up-element ${project.large ? 'lg:col-span-2' : ''}`,
+        { 'is-visible': inView }
+      )}
+      style={{ transitionDelay: `${index * 100}ms` }}
+    >
+      <div className="glass h-full p-8 rounded-2xl flex flex-col group-hover:translate-y-[-8px] group-hover:scale-[1.02] group-hover:shadow-2xl group-hover:shadow-primary/20 relative overflow-hidden transition-transform duration-300 ease-in-out will-change-transform">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-10 transition-opacity duration-300 -z-10"></div>
         <div className="text-primary">{project.icon}</div>
         <h3 className="text-2xl font-bold mb-4">{project.title}</h3>
@@ -92,8 +103,8 @@ const Projects = () => {
     <>
       <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">My Projects</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map(project => (
-          <ProjectCard key={project.id} project={project} />
+        {projects.map((project, index) => (
+          <ProjectCard key={project.id} project={project} index={index} />
         ))}
       </div>
     </>
