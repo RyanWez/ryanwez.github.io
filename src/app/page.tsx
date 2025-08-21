@@ -4,11 +4,12 @@ import dynamic from 'next/dynamic';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Preloader from '@/components/Preloader';
+import BackToTop from '@/components/BackToTop';
 
 // Lazy-loaded components
-const AboutSection = dynamic(() => import('@/components/sections/AboutSection'));
-const ProjectsSection = dynamic(() => import('@/components/sections/ProjectsSection'));
-const ContactSection = dynamic(() => import('@/components/sections/ContactSection'));
+const AboutSection = dynamic(() => import('@/components/AboutSection'));
+const ProjectsSection = dynamic(() => import('@/components/ProjectsSection'));
+const ContactSection = dynamic(() => import('@/components/ContactSection'));
 const Footer = dynamic(() => import('@/components/Footer'));
 
 export default function Home() {
@@ -35,6 +36,7 @@ export default function Home() {
             <ContactSection />
           </main>
           <Footer />
+          <BackToTop />
         </>
       )}
     </>
