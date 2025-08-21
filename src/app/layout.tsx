@@ -6,27 +6,31 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
+const siteUrl = 'https://ryanwez.github.io';
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://ryanwez.github.io'),
+  metadataBase: new URL(siteUrl),
   title: "RyanWez - AI Enthusiast & Project Creator",
   description: "The personal portfolio of RyanWez, an AI Enthusiast and Project Creator showcasing modern web applications and intelligent chatbots. Explore projects like SayarKaung, Employee-MM, and MiYanMar AI.",
-  keywords: ["RyanWez", "AI Enthusiast", "Web Developer", "Project Creator", "React", "Next.js", "TypeScript", "Portfolio"],
-  authors: [{ name: "RyanWez" }],
+  keywords: ["RyanWez", "AI Enthusiast", "Web Developer", "Project Creator", "React", "Next.js", "TypeScript", "Portfolio", "Myanmar AI developer", "Next.js developer in Myanmar", "Telegram Bot Developer"],
+  authors: [{ name: "RyanWez", url: siteUrl }],
   creator: "RyanWez",
   publisher: "RyanWez",
+  manifest: "/manifest.json",
   icons: {
     icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://ryanwez.github.io",
+    url: siteUrl,
     title: "RyanWez - AI Enthusiast & Project Creator",
     description: "The personal portfolio of RyanWez, an AI Enthusiast and Project Creator showcasing modern web applications and intelligent chatbots.",
     siteName: "RyanWez Portfolio",
     images: [
       {
-        url: "/mona.webp",
+        url: `${siteUrl}/mona.webp`,
         width: 1200,
         height: 630,
         alt: "RyanWez Portfolio",
@@ -37,7 +41,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "RyanWez - AI Enthusiast & Project Creator",
     description: "The personal portfolio of RyanWez, an AI Enthusiast and Project Creator showcasing modern web applications and intelligent chatbots.",
-    images: ["/mona.webp"],
+    images: [`${siteUrl}/mona.webp`],
+    creator: "@RyanWez",
   },
   robots: {
     index: true,
@@ -52,6 +57,23 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'RyanWez',
+  url: siteUrl,
+  sameAs: [
+    'https://github.com/RyanWez',
+    'https://www.facebook.com/ryanwez0',
+    'https://t.me/RyanWez',
+  ],
+  jobTitle: 'AI Enthusiast & Project Creator',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'RyanWez',
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -59,6 +81,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={cn("min-h-screen bg-background font-sans antialiased", inter.variable)}>
         <ThemeProvider
           attribute="class"
