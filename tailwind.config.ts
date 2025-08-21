@@ -67,25 +67,10 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "float": {
-          "0%, 100%": {
-            transform: "translateY(0) translateX(0)",
-          },
-          "25%": {
-            transform: "translateY(-50px) translateX(20px)",
-          },
-          "50%": {
-            transform: "translateY(20px) translateX(-30px)",
-          },
-          "75%": {
-            transform: "translateY(-30px) translateX(50px)",
-          },
-        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "float": "float 20s ease-in-out infinite",
       },
     },
   },
