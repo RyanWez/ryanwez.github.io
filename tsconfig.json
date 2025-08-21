@@ -25,12 +25,8 @@
       "@/*": [
         "./src/*"
       ]
-<<<<<<< HEAD
     },
     "target": "ES2017"
-=======
-    }
->>>>>>> origin/main
   },
   "include": [
     "next-env.d.ts",
