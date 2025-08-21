@@ -16,7 +16,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
     <div className={`group relative ${project.large ? 'lg:col-span-2' : ''}`}>
       <div className="glass h-full p-8 rounded-2xl flex flex-col group-hover:translate-y-[-8px] group-hover:scale-103 group-hover:shadow-2xl group-hover:shadow-primary/20 relative overflow-hidden transition-transform duration-300 ease-in-out will-change-transform">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-10 transition-opacity duration-300 -z-10"></div>
-        <div className="gradient-text">{project.icon}</div>
+        <div className="text-primary">{project.icon}</div>
         <h3 className="text-2xl font-bold mb-4">{project.title}</h3>
         <p className="text-foreground/80 flex-grow mb-6">{project.description}</p>
         <Link href={project.link} target="_blank" rel="noopener noreferrer" className="text-primary font-semibold inline-flex items-center gap-2 group-hover:gap-4 transition-all">
