@@ -6,20 +6,24 @@ import { AnimatedThemeToggler } from "@/components/magicui/animated-theme-toggle
 
 // Throttle function for performance optimization
 const throttle = (func: Function, delay: number) => {
-  let timeoutId: NodeJS.Timeout;
+  let timeoutId: NodeJS.Timeout | null = null;
   let lastExecTime = 0;
+
   return function (this: any, ...args: any[]) {
     const currentTime = Date.now();
-    
-    if (currentTime - lastExecTime > delay) {
-      func.apply(this, args);
-      lastExecTime = currentTime;
-    } else {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => {
+    const timeSinceLastExec = currentTime - lastExecTime;
+
+    if (!timeoutId) {
+      if (timeSinceLastExec >= delay) {
         func.apply(this, args);
-        lastExecTime = Date.now();
-      }, delay - (currentTime - lastExecTime));
+        lastExecTime = currentTime;
+      } else {
+        timeoutId = setTimeout(() => {
+          func.apply(this, args);
+          lastExecTime = Date.now();
+          timeoutId = null;
+        }, delay - timeSinceLastExec);
+      }
     }
   };
 };
@@ -60,7 +64,7 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    const throttledHandleScroll = throttle(handleScroll, 16); // ~60fps
+    const throttledHandleScroll = throttle(handleScroll, 16); // ~60fps for smoother active state update
 
     window.addEventListener('scroll', throttledHandleScroll, { passive: true });
     handleScroll(); // Initial check
