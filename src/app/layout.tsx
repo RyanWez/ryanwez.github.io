@@ -17,8 +17,12 @@ export const metadata: Metadata = {
   creator: "RyanWez",
   publisher: "RyanWez",
   icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    icon: [
+      { url: '/favicon.ico', sizes: 'any', type: 'image/x-icon' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
   },
   openGraph: {
     type: "website",
@@ -29,7 +33,7 @@ export const metadata: Metadata = {
     siteName: "RyanWez Portfolio",
     images: [
       {
-        url: `${siteUrl}/mona.webp`,
+        url: `/mona.webp`,
         width: 1200,
         height: 630,
         alt: "RyanWez Portfolio",
@@ -40,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "RyanWez - AI Enthusiast & Project Creator",
     description: "The personal portfolio of RyanWez, an AI Enthusiast and Project Creator showcasing modern web applications and intelligent chatbots.",
-    images: [`${siteUrl}/mona.webp`],
+    images: [`/mona.webp`],
     creator: "@RyanWez",
   },
   robots: {
