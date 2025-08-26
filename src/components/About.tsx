@@ -63,11 +63,14 @@ const About = () => {
                 <CheckCircle size={20} className="text-white" />
               </div>
             </div>
-            <p className="text-foreground/80 leading-relaxed mb-6 group-hover:text-foreground transition-colors">
-              I&apos;m RyanWez, an innovator passionate about leveraging Artificial Intelligence to create practical and exciting digital solutions. With a foundational knowledge of web technologies, I excel at orchestrating AI to build and deploy functional web apps and intelligent chatbots.
+            <p className="text-foreground/80 leading-relaxed mb-4 group-hover:text-foreground transition-colors">
+              Hey there! I&apos;m Ryan, and my journey into tech started like many others - with curiosity and a lot of late-night coding sessions. What began as tinkering with simple websites has evolved into a genuine passion for creating AI-powered solutions that actually make people&apos;s lives easier.
             </p>
-            <p className="text-foreground/70 leading-relaxed group-hover:text-foreground/80 transition-colors">
-              My passion lies in bridging the gap between complex AI technologies and practical, user-friendly applications. I believe in the power of AI to transform how we interact with digital platforms and solve real-world problems.
+            <p className="text-foreground/70 leading-relaxed mb-4 group-hover:text-foreground/80 transition-colors">
+              I&apos;ve spent countless hours learning how to make AI work for real people, not just in theory. From building chatbots that actually understand what users want, to creating web apps that solve everyday problems - I love turning complex technology into simple, useful tools.
+            </p>
+            <p className="text-foreground/60 leading-relaxed group-hover:text-foreground/70 transition-colors text-sm">
+              When I&apos;m not coding, you&apos;ll find me exploring the latest AI developments, contributing to open-source projects, or helping fellow developers navigate the exciting world of AI integration.
             </p>
           </div>
 
