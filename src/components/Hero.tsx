@@ -29,12 +29,14 @@ const Hero = () => {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative p-4" ref={ref}>
       <ParticlesBackground />
-      <div className={cn("text-center z-10 fade-in-element", { 'is-visible': inView })}>
-        <div className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4">
+      <div className={cn("text-center z-10 fade-in-element max-w-5xl mx-auto", { 'is-visible': inView })}>
+        {/* Main heading with better spacing */}
+        <div className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 md:mb-12">
           Hi, I&apos;m <span className="gradient-text">Ryan Wez</span>
         </div>
 
-        <div className="text-xl md:text-2xl lg:text-3xl text-foreground/80 mb-4">
+        {/* Typewriter section with more space */}
+        <div className="text-xl md:text-2xl lg:text-3xl text-foreground/80 mb-8 md:mb-12 min-h-[2.5rem] md:min-h-[3rem] lg:min-h-[3.5rem]">
           <Typewriter
             words={['AI Enthusiast', 'Project Creator', 'Web Developer']}
             loop={true}
@@ -46,11 +48,15 @@ const Hero = () => {
           />
         </div>
 
-        <p className="text-lg md:text-xl text-foreground/70 mb-8 max-w-3xl mx-auto leading-relaxed">
-          I&apos;m a passionate innovator at the intersection of Artificial Intelligence and modern web technologies, dedicated to building solutions that solve real-world problems.
-        </p>
+        {/* Description with better spacing and readability */}
+        <div className="mb-12 md:mb-16">
+          <p className="text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto leading-relaxed px-4">
+            I&apos;m a passionate innovator at the intersection of Artificial Intelligence and modern web technologies, dedicated to building solutions that solve real-world problems.
+          </p>
+        </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        {/* Buttons with improved spacing */}
+        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
           <Link href="#projects" onClick={(e) => handleSmoothScroll(e, 'projects')} className="px-8 py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-primary to-secondary hover:translate-y-[-2px] transition-transform duration-300 hover:shadow-lg hover:shadow-primary/30">
             View Projects
           </Link>
