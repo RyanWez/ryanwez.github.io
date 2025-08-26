@@ -47,7 +47,7 @@ const Hero = () => {
         </div>
 
         <p className="text-lg md:text-xl text-foreground/70 mb-8 max-w-3xl mx-auto leading-relaxed">
-          I'm a passionate innovator at the intersection of Artificial Intelligence and modern web technologies, dedicated to building solutions that solve real-world problems.
+          I&apos;m a passionate innovator at the intersection of Artificial Intelligence and modern web technologies, dedicated to building solutions that solve real-world problems.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
