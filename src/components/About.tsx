@@ -64,7 +64,7 @@ const About = () => {
               </div>
             </div>
             <p className="text-foreground/80 leading-relaxed mb-6 group-hover:text-foreground transition-colors">
-              I'm RyanWez, an innovator passionate about leveraging Artificial Intelligence to create practical and exciting digital solutions. With a foundational knowledge of web technologies, I excel at orchestrating AI to build and deploy functional web apps and intelligent chatbots.
+              I&apos;m RyanWez, an innovator passionate about leveraging Artificial Intelligence to create practical and exciting digital solutions. With a foundational knowledge of web technologies, I excel at orchestrating AI to build and deploy functional web apps and intelligent chatbots.
             </p>
             <p className="text-foreground/70 leading-relaxed group-hover:text-foreground/80 transition-colors">
               My passion lies in bridging the gap between complex AI technologies and practical, user-friendly applications. I believe in the power of AI to transform how we interact with digital platforms and solve real-world problems.
