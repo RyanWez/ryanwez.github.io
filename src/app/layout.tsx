@@ -10,12 +10,12 @@ const siteUrl = 'https://ryanwez.github.io';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "RyanWez - AI Enthusiast & Project Creator",
-  description: "The personal portfolio of RyanWez, an AI Enthusiast and Project Creator showcasing modern web applications and intelligent chatbots. Explore projects like SayarKaung, Employee-MM, and MiYanMar AI.",
-  keywords: ["RyanWez", "Ryan Wez", "AI Enthusiast", "Web Developer", "Project Creator", "React", "Next.js", "TypeScript", "Portfolio", "Myanmar AI developer", "Next.js developer in Myanmar", "Telegram Bot Developer"],
-  authors: [{ name: "RyanWez", url: siteUrl }],
-  creator: "RyanWez",
-  publisher: "RyanWez",
+  title: "Ryan Wez - AI Enthusiast & Project Creator",
+  description: "The personal portfolio of Ryan Wez, an AI Enthusiast and Project Creator showcasing modern web applications and intelligent chatbots. Explore projects like SayarKaung, Employee-MM, and MiYanMar AI.",
+  keywords: ["Ryan Wez", "RyanWez", "AI Enthusiast", "Web Developer", "Project Creator", "React", "Next.js", "TypeScript", "Portfolio", "Myanmar AI developer", "Next.js developer in Myanmar", "Telegram Bot Developer"],
+  authors: [{ name: "Ryan Wez", url: siteUrl }],
+  creator: "Ryan Wez",
+  publisher: "Ryan Wez",
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any', type: 'image/x-icon' },
@@ -29,22 +29,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    title: "RyanWez - AI Enthusiast & Project Creator",
-    description: "The personal portfolio of RyanWez, an AI Enthusiast and Project Creator showcasing modern web applications and intelligent chatbots.",
-    siteName: "RyanWez Portfolio",
+    title: "Ryan Wez - AI Enthusiast & Project Creator",
+    description: "The personal portfolio of Ryan Wez, an AI Enthusiast and Project Creator showcasing modern web applications and intelligent chatbots.",
+    siteName: "Ryan Wez Portfolio",
     images: [
       {
         url: `/favicon.svg`,
         width: 1200,
         height: 630,
-        alt: "RyanWez Portfolio",
+        alt: "Ryan Wez Portfolio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "RyanWez - AI Enthusiast & Project Creator",
-    description: "The personal portfolio of RyanWez, an AI Enthusiast and Project Creator showcasing modern web applications and intelligent chatbots.",
+    title: "Ryan Wez - AI Enthusiast & Project Creator",
+    description: "The personal portfolio of Ryan Wez, an AI Enthusiast and Project Creator showcasing modern web applications and intelligent chatbots.",
     images: [`/mona.webp`],
     creator: "@RyanWez",
   },
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: 'RyanWez',
+  name: 'Ryan Wez',
   url: siteUrl,
   sameAs: [
     'https://github.com/RyanWez',
@@ -74,7 +74,7 @@ const jsonLd = {
   jobTitle: 'AI Enthusiast & Project Creator',
   worksFor: {
     '@type': 'Organization',
-    name: 'RyanWez',
+    name: 'Ryan Wez',
   },
 };
 

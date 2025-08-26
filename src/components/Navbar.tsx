@@ -75,6 +75,21 @@ const Navbar = () => {
   const toggleMenu = () => setIsActive(!isActive);
   const closeMenu = () => setIsActive(false);
 
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    closeMenu();
+    
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      const offsetTop = targetElement.offsetTop - 120; // Account for fixed navbar
+      
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   const navLinks = [
     { id: 'home', title: 'Home' },
     { id: 'about', title: 'About' },
@@ -91,10 +106,10 @@ const Navbar = () => {
               : 'bg-transparent backdrop-blur-0'
           }`}>
             <div className="flex justify-between items-center">
-            <Link href="#home" className="flex items-center" onClick={closeMenu}>
+            <Link href="#home" className="flex items-center" onClick={(e) => handleSmoothScroll(e, 'home')}>
                 <Image 
                   src="/mona.webp" 
-                  alt="RyanWez portfolio logo" 
+                  alt="Ryan Wez portfolio logo" 
                   width={38} 
                   height={38}
                   priority
@@ -102,7 +117,7 @@ const Navbar = () => {
             </Link>
             <div className="hidden md:flex items-center gap-8">
                 {navLinks.map((link) => (
-                <Link key={link.id} href={`#${link.id}`} onClick={closeMenu} className={`relative font-semibold text-foreground/90 hover:text-foreground transition-colors after:content-[''] after:absolute after:bottom-[-5px] after:left-0 after:h-[2px] after:bg-gradient-to-r after:from-primary after:to-secondary after:transition-all after:duration-300 ${activeSection === link.id ? 'text-foreground after:w-full' : 'after:w-0'}`}>
+                <Link key={link.id} href={`#${link.id}`} onClick={(e) => handleSmoothScroll(e, link.id)} className={`relative font-semibold text-foreground/90 hover:text-foreground transition-colors after:content-[''] after:absolute after:bottom-[-5px] after:left-0 after:h-[2px] after:bg-gradient-to-r after:from-primary after:to-secondary after:transition-all after:duration-300 ${activeSection === link.id ? 'text-foreground after:w-full' : 'after:w-0'}`}>
                     {link.title}
                 </Link>
                 ))}
@@ -135,7 +150,7 @@ const Navbar = () => {
             <div className="mt-2 p-4 bg-background/60 dark:bg-background/40 backdrop-blur-xl rounded-2xl border border-black/5 dark:border-white/10 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:shadow-[0_2px_15px_-3px_rgba(0,0,0,0.2),0_10px_20px_-2px_rgba(0,0,0,0.15)]">
                 <div className="flex flex-col items-center gap-4">
                     {navLinks.map((link) => (
-                    <Link key={link.id} href={`#${link.id}`} onClick={closeMenu} className={`relative w-full text-center py-2 text-lg font-semibold text-foreground/90 hover:text-foreground transition-colors after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-[2px] after:bg-gradient-to-r after:from-primary after:to-secondary after:transition-all after:duration-300 ${activeSection === link.id ? 'text-foreground after:w-1/4' : 'after:w-0'}`}>
+                    <Link key={link.id} href={`#${link.id}`} onClick={(e) => handleSmoothScroll(e, link.id)} className={`relative w-full text-center py-2 text-lg font-semibold text-foreground/90 hover:text-foreground transition-colors after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-[2px] after:bg-gradient-to-r after:from-primary after:to-secondary after:transition-all after:duration-300 ${activeSection === link.id ? 'text-foreground after:w-1/4' : 'after:w-0'}`}>
                         {link.title}
                     </Link>
                     ))}

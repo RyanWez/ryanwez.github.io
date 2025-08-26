@@ -70,7 +70,13 @@
   }
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 100px;
+    scroll-padding-top: 120px;
+  }
+  
+  @media (max-width: 768px) {
+    html {
+      scroll-padding-top: 100px;
+    }
   }
   [data-inert="true"] {
     pointer-events: none;

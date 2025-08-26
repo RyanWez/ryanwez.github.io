@@ -14,7 +14,7 @@ const About = () => {
       <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">About Me</h2>
       <div className="max-w-3xl mx-auto glass p-8 rounded-2xl">
         <p className="text-lg text-foreground/80 text-center leading-relaxed mb-8">
-          I&apos;m RyanWez, an innovator passionate about leveraging Artificial Intelligence to create practical and exciting digital solutions. With a foundational knowledge of web technologies, I excel at orchestrating AI to build and deploy functional web apps and intelligent chatbots.
+          I&apos;m Ryan Wez, an innovator passionate about leveraging Artificial Intelligence to create practical and exciting digital solutions. With a foundational knowledge of web technologies, I excel at orchestrating AI to build and deploy functional web apps and intelligent chatbots.
         </p>
         <div className="grid grid-cols-2 gap-16">
           {skills.map(skill => (
