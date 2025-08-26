@@ -134,7 +134,7 @@ const About = () => {
         <div className="glass p-6 rounded-2xl text-center hover:translate-y-[-4px] hover:shadow-xl transition-all duration-300">
           <h3 className="text-xl font-semibold mb-3">Ready to Collaborate?</h3>
           <p className="text-foreground/80 mb-4">
-            Let's discuss how we can bring your ideas to life with innovative AI-powered solutions.
+            Let&apos;s discuss how we can bring your ideas to life with innovative AI-powered solutions.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <button
