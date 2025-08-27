@@ -37,12 +37,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: 'any', type: 'image/x-icon' },
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icons/favicon.ico', sizes: 'any', type: 'image/x-icon' },
+      { url: '/icons/favicon.svg', type: 'image/svg+xml' },
+      { url: '/icons/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/icons/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
     ],
-    apple: '/apple-touch-icon.png',
+    apple: '/icons/apple-touch-icon.png',
   },
   manifest: '/site.webmanifest',
   openGraph: {
@@ -54,14 +54,14 @@ export const metadata: Metadata = {
     siteName: "Ryan Wez Portfolio",
     images: [
       {
-        url: `/og-image.png`,
+        url: `/images/og-image.png`,
         width: 1200,
         height: 630,
         alt: "Ryan Wez - AI Enthusiast & Project Creator Portfolio",
         type: "image/png",
       },
       {
-        url: `/og-image-square.png`,
+        url: `/images/og-image-square.png`,
         width: 400,
         height: 400,
         alt: "Ryan Wez Profile",
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     title: "Ryan Wez - AI Enthusiast & Project Creator",
     description: "Professional portfolio showcasing innovative AI-powered web applications and intelligent solutions.",
     images: {
-      url: `/og-image.png`,
+      url: `/images/og-image.png`,
       alt: "Ryan Wez Portfolio",
     },
   },
@@ -110,7 +110,7 @@ const jsonLd = {
   name: 'Ryan Wez',
   alternateName: 'RyanWez',
   url: siteUrl,
-  image: `${siteUrl}/og-image.png`,
+  image: `${siteUrl}/images/og-image.png`,
   description: 'AI Enthusiast & Project Creator specializing in modern web applications and intelligent solutions',
   sameAs: [
     'https://github.com/RyanWez',
@@ -176,7 +176,7 @@ export default function RootLayout({
         <meta name="msapplication-config" content="/browserconfig.xml" />
 
         {/* Preload critical resources */}
-        <link rel="preload" href="/og-image.png" as="image" type="image/png" />
+        <link rel="preload" href="/images/og-image.png" as="image" type="image/png" />
 
         {/* Search Engine Verification */}
         <meta name="msvalidate.01" content="07AB2E07C877344005C6261F81933521" />

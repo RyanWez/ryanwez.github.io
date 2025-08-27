@@ -4,7 +4,7 @@ import Image from 'next/image';
 const Preloader = ({ loading }: { loading: boolean }) => {
   return (
     <div className={`preloader ${loading ? '' : 'preloader-hidden'}`}>
-      <Image src="/mona.webp" alt="Loading..." width={60} height={60} priority />
+      <Image src="/images/mona.webp" alt="Loading..." width={60} height={60} priority />
     </div>
   );
 };

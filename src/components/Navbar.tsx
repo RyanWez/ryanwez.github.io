@@ -108,7 +108,7 @@ const Navbar = () => {
             <div className="flex justify-between items-center">
             <Link href="#home" className="flex items-center" onClick={(e) => handleSmoothScroll(e, 'home')}>
                 <Image 
-                  src="/mona.webp" 
+                  src="/images/mona.webp" 
                   alt="Ryan Wez portfolio logo" 
                   width={38} 
                   height={38}
