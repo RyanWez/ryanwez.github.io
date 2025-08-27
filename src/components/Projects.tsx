@@ -30,9 +30,9 @@ const ProjectCard = ({ project, index }: { project: Project, index: number }) =>
         <div className="text-primary">{project.icon}</div>
         <h3 className="text-2xl font-bold mb-4">{project.title}</h3>
         <p className="text-foreground/80 flex-grow mb-6">{project.description}</p>
-        <Link href={project.link} target="_blank" rel="noopener noreferrer" className="text-primary font-semibold inline-flex items-center gap-2 group-hover:gap-4 transition-all">
+        <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-primary font-semibold inline-flex items-center gap-2 group-hover:gap-4 transition-all">
           {project.link.includes('t.me') ? 'Try Bot' : 'View Project'} <ArrowRight size={20} />
-        </Link>
+        </a>
       </div>
     </div>
   );
