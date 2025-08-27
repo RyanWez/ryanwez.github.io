@@ -4,8 +4,8 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
-const inter = Inter({ 
-  subsets: ["latin"], 
+const inter = Inter({
+  subsets: ["latin"],
   variable: "--font-sans",
   display: 'swap',
   preload: true
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
   },
   description: "Professional portfolio of Ryan Wez - AI Enthusiast, Web Developer & Project Creator. Specializing in modern web applications, intelligent chatbots, and AI-powered solutions. Explore innovative projects and get in touch for collaborations.",
   keywords: [
-    "Ryan Wez", "RyanWez", "AI Enthusiast", "Web Developer", "Project Creator", 
-    "React Developer", "Next.js", "TypeScript", "JavaScript", "Portfolio", 
+    "Ryan Wez", "RyanWez", "AI Enthusiast", "Web Developer", "Project Creator",
+    "React Developer", "Next.js", "TypeScript", "JavaScript", "Portfolio",
     "Myanmar AI developer", "Chatbot Developer", "Telegram Bot Developer",
     "Full Stack Developer", "Frontend Developer", "AI Integration", "Machine Learning",
     "Web Applications", "Modern Web Development", "Responsive Design", "SEO Optimization"
@@ -95,8 +95,8 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "tUDqk_vr2ti4COAvMzFu4jsw28WjEKWvf55xZtWO798",
-    yandex: "69cf6376aadb1033",
-    yahoo: "07AB2E07C877344005C6261F81933521",
+    // yandex: "69cf6376aadb1033", // Temporarily disabled - needs proper verification
+    // yahoo/bing: Will be added via meta tag method
   },
   alternates: {
     canonical: siteUrl,
@@ -133,7 +133,7 @@ const jsonLd = {
   },
   knowsAbout: [
     'Artificial Intelligence',
-    'Web Development', 
+    'Web Development',
     'React',
     'Next.js',
     'TypeScript',
@@ -174,10 +174,14 @@ export default function RootLayout({
         <meta name="application-name" content="Ryan Wez Portfolio" />
         <meta name="msapplication-TileColor" content="#5DADE2" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
-        
+
         {/* Preload critical resources */}
         <link rel="preload" href="/og-image.png" as="image" type="image/png" />
-        
+
+        {/* Search Engine Verification */}
+        <meta name="msvalidate.01" content="07AB2E07C877344005C6261F81933521" />
+        <meta name="yandex-verification" content="69cf6376aadb1033" />
+
         {/* Additional SEO meta tags */}
         <meta name="geo.region" content="MM" />
         <meta name="geo.country" content="Myanmar" />
@@ -185,7 +189,7 @@ export default function RootLayout({
         <meta name="rating" content="General" />
         <meta name="distribution" content="Global" />
         <meta name="revisit-after" content="7 days" />
-        
+
         <style dangerouslySetInnerHTML={{
           __html: `
             body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; }
