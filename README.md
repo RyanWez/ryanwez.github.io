@@ -21,7 +21,7 @@ A modern, responsive portfolio website showcasing my journey as an AI enthusiast
 - **Projects Showcase**: Modern grid layout for projects
 - **Performance**: Optimized loading and rendering
 
-## �  The Perfect Score
+## 👌 The Perfect Score
 
 Achieved a perfect 100 in all categories on Google PageSpeed Insights for both Mobile and Desktop.
 
