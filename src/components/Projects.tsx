@@ -1,6 +1,6 @@
 'use client';
 import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
+
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 import { cn } from '@/lib/utils';
 

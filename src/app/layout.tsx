@@ -181,6 +181,13 @@ export default function RootLayout({
         {/* Search Engine Verification */}
         <meta name="msvalidate.01" content="07AB2E07C877344005C6261F81933521" />
         <meta name="yandex-verification" content="69cf6376aadb1033" />
+        
+        {/* Enhanced SEO Meta Tags */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
+        <meta name="bingbot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
+        <meta name="slurp" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
+        <meta name="duckduckbot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
 
         {/* Additional SEO meta tags */}
         <meta name="geo.region" content="MM" />

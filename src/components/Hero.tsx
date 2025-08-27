@@ -32,9 +32,9 @@ const Hero = () => {
       <ParticlesBackground />
       <div className={cn("text-center z-10 fade-in-element max-w-5xl mx-auto", { 'is-visible': inView })}>
         {/* Main heading with better spacing */}
-        <div className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-8 md:mb-12">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-8 md:mb-12">
           Hi, I&apos;m <span className="gradient-text whitespace-nowrap">Ryan Wez</span>
-        </div>
+        </h1>
 
         {/* Typewriter section with more space */}
         <div className="text-xl md:text-2xl lg:text-3xl text-foreground/80 mb-8 md:mb-12 min-h-[2.5rem] md:min-h-[3rem] lg:min-h-[3.5rem]">
