@@ -37,6 +37,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: '/images/og-image.png', sizes: '1200x630', type: 'image/png' },
       { url: '/icons/favicon.ico', sizes: 'any', type: 'image/x-icon' },
       { url: '/icons/favicon.svg', type: 'image/svg+xml' },
       { url: '/icons/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
@@ -164,6 +165,10 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+        {/* Primary favicon for Telegram and other social platforms */}
+        <link rel="icon" href="/images/og-image.png" type="image/png" />
+        <link rel="shortcut icon" href="/images/og-image.png" type="image/png" />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <meta name="theme-color" content="#5DADE2" />
         <meta name="color-scheme" content="dark light" />
@@ -178,10 +183,14 @@ export default function RootLayout({
         {/* Preload critical resources */}
         <link rel="preload" href="/images/og-image.png" as="image" type="image/png" />
 
+        {/* Telegram-specific meta tags */}
+        <meta property="telegram:image" content="/images/og-image.png" />
+        <meta name="telegram:image" content="/images/og-image.png" />
+
         {/* Search Engine Verification */}
         <meta name="msvalidate.01" content="07AB2E07C877344005C6261F81933521" />
         <meta name="yandex-verification" content="69cf6376aadb1033" />
-        
+
         {/* Enhanced SEO Meta Tags */}
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
