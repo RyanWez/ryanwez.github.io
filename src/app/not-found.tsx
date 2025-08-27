@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { Home, ArrowLeft, Zap } from 'lucide-react';
+import { Home, ArrowLeft } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 // Detect if device is mobile for performance optimization
@@ -101,33 +101,7 @@ const NotFound = () => {
           </button>
         </div>
 
-        {/* Quick Navigation - Conditional animations */}
-        <div className={`glass p-6 rounded-2xl ${isClient && !isMobile() ? 'hover:scale-105 hover:shadow-xl transition-all duration-300' : ''}`}>
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Zap size={24} className="text-primary" />
-            <h3 className="text-lg font-semibold">Quick Navigation</h3>
-          </div>
-          <div className="flex flex-wrap gap-3 justify-center">
-            <Link
-              href="/#about"
-              className={`px-4 py-2 bg-primary/20 text-primary rounded-full hover:bg-primary/30 ${isClient && !isMobile() ? 'hover:scale-110 hover:shadow-md transition-all duration-200 transform' : 'transition-colors duration-200'}`}
-            >
-              About
-            </Link>
-            <Link
-              href="/#projects"
-              className={`px-4 py-2 bg-secondary/20 text-secondary rounded-full hover:bg-secondary/30 ${isClient && !isMobile() ? 'hover:scale-110 hover:shadow-md transition-all duration-200 transform' : 'transition-colors duration-200'}`}
-            >
-              Projects
-            </Link>
-            <Link
-              href="/#contact"
-              className={`px-4 py-2 bg-primary/30 text-primary border border-primary/50 rounded-full hover:bg-primary/40 hover:border-primary ${isClient && !isMobile() ? 'hover:scale-110 hover:shadow-md transition-all duration-200 transform' : 'transition-colors duration-200'}`}
-            >
-              Contact
-            </Link>
-          </div>
-        </div>
+
 
         {/* Easter Egg */}
         <div className="mt-8 text-xs text-foreground/40">

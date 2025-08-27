@@ -56,7 +56,7 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
           {/* My Journey */}
-          <div className="glass p-8 rounded-2xl hover:translate-y-[-8px] hover:shadow-2xl transition-all duration-300 cursor-pointer group">
+          <div className="glass p-8 rounded-2xl hover:translate-y-[-4px] hover:shadow-xl transition-all duration-200 cursor-pointer group">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-2xl font-semibold text-foreground group-hover:text-primary transition-colors">My Journey</h3>
               <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -75,7 +75,7 @@ const About = () => {
           </div>
 
           {/* AI & Machine Learning */}
-          <div className="glass p-8 rounded-2xl hover:translate-y-[-8px] hover:shadow-2xl transition-all duration-300 cursor-pointer group">
+          <div className="glass p-8 rounded-2xl hover:translate-y-[-4px] hover:shadow-xl transition-all duration-200 cursor-pointer group">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-2xl font-semibold text-foreground group-hover:text-primary transition-colors">AI & Machine Learning</h3>
               <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -97,7 +97,7 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
           {/* Web Technologies */}
-          <div className="glass p-8 rounded-2xl hover:translate-y-[-8px] hover:shadow-2xl transition-all duration-300 cursor-pointer group">
+          <div className="glass p-8 rounded-2xl hover:translate-y-[-4px] hover:shadow-xl transition-all duration-200 cursor-pointer group">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-2xl font-semibold text-foreground group-hover:text-primary transition-colors">Web Technologies</h3>
               <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -115,7 +115,7 @@ const About = () => {
           </div>
 
           {/* Tools & Platforms */}
-          <div className="glass p-8 rounded-2xl hover:translate-y-[-8px] hover:shadow-2xl transition-all duration-300 cursor-pointer group">
+          <div className="glass p-8 rounded-2xl hover:translate-y-[-4px] hover:shadow-xl transition-all duration-200 cursor-pointer group">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-2xl font-semibold text-foreground group-hover:text-primary transition-colors">Tools & Platforms</h3>
               <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">

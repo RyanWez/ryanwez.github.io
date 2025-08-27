@@ -10,15 +10,24 @@ const ParticlesBackground = () => {
   const { theme } = useTheme();
 
   useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    }).then(() => {
-      setInit(true);
-    });
+    // Delay initialization to improve initial load
+    const timer = setTimeout(() => {
+      initParticlesEngine(async (engine) => {
+        await loadSlim(engine);
+      }).then(() => {
+        setInit(true);
+      });
+    }, 1000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   const particlesLoaded = async (container?: Container): Promise<void> => {
-    // console.log('Particles container loaded', container);
+    // Optimize container performance
+    if (container) {
+      container.pause();
+      setTimeout(() => container.play(), 100);
+    }
   };
 
   const options: ISourceOptions = useMemo(
@@ -28,25 +37,14 @@ const ParticlesBackground = () => {
           value: 'transparent',
         },
       },
-      fpsLimit: 60,
+      fpsLimit: 30, // Reduced from 60 for better performance
       interactivity: {
         events: {
           onClick: {
-            enable: true,
-            mode: 'push',
+            enable: false, // Disabled for performance
           },
           onHover: {
-            enable: true,
-            mode: 'repulse',
-          },
-        },
-        modes: {
-          push: {
-            quantity: 4,
-          },
-          repulse: {
-            distance: 150,
-            duration: 0.4,
+            enable: false, // Disabled for performance
           },
         },
       },
@@ -56,10 +54,10 @@ const ParticlesBackground = () => {
         },
         links: {
           color: theme === 'dark' ? '#ffffff' : '#000000',
-          distance: 150,
+          distance: 120, // Reduced from 150
           enable: true,
-          opacity: 0.2,
-          width: 1,
+          opacity: 0.15, // Reduced from 0.2
+          width: 0.5, // Reduced from 1
         },
         move: {
           direction: 'none',
@@ -68,26 +66,28 @@ const ParticlesBackground = () => {
             default: 'out',
           },
           random: false,
-          speed: 1,
+          speed: 0.5, // Reduced from 1
           straight: false,
         },
         number: {
           density: {
             enable: true,
           },
-          value: 80,
+          value: window.innerWidth < 768 ? 30 : 50, // Reduced particles on mobile
         },
         opacity: {
-          value: 0.3,
+          value: 0.2, // Reduced from 0.3
         },
         shape: {
           type: 'circle',
         },
         size: {
-          value: { min: 1, max: 3 },
+          value: { min: 0.5, max: 2 }, // Reduced size
         },
       },
-      detectRetina: true,
+      detectRetina: false, // Disabled for performance
+      pauseOnBlur: true,
+      pauseOnOutsideViewport: true,
     }),
     [theme],
   );

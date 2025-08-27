@@ -7,6 +7,7 @@ import Typewriter from '@/components/Typewriter';
 
 const ParticlesBackground = dynamic(() => import('@/components/ParticlesBackground'), {
   ssr: false,
+  loading: () => null,
 });
 
 const Hero = () => {
