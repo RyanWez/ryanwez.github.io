@@ -3,12 +3,28 @@ import Link from 'next/link';
 import { Home, ArrowLeft, Zap } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
+// Detect if device is mobile for performance optimization
+const isMobile = () => {
+  if (typeof window === 'undefined') return false;
+  return window.innerWidth < 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+};
+
 const NotFound = () => {
   const [typewriterText, setTypewriterText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
+  const [isClient, setIsClient] = useState(false);
   const fullText = 'Oops! Page Not Found';
 
   useEffect(() => {
+    setIsClient(true);
+
+    // Skip animations on mobile for better performance
+    if (isMobile()) {
+      setTypewriterText(fullText);
+      setShowCursor(false);
+      return;
+    }
+
     const startTypewriter = () => {
       let currentIndex = 0;
       setTypewriterText('');
@@ -25,10 +41,10 @@ const NotFound = () => {
       }, 100);
     };
 
-    // Start the typewriter effect
+    // Start the typewriter effect only on desktop
     startTypewriter();
 
-    // Cursor blinking
+    // Cursor blinking only on desktop
     const cursorInterval = setInterval(() => {
       setShowCursor(prev => !prev);
     }, 500);
@@ -66,27 +82,27 @@ const NotFound = () => {
           </p>
         </div>
 
-        {/* Action Buttons - Enhanced hover effects */}
+        {/* Action Buttons - Conditional animations */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
           <Link
             href="/"
-            className="group flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 hover:scale-105 hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 transform"
+            className={`group flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 ${isClient && !isMobile() ? 'hover:scale-105 hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 transform' : 'transition-colors duration-200'}`}
           >
-            <Home size={20} className="group-hover:scale-110 transition-transform duration-200" />
+            <Home size={20} className={isClient && !isMobile() ? "group-hover:scale-110 transition-transform duration-200" : ""} />
             Back to Home
           </Link>
 
           <button
             onClick={() => window.history.back()}
-            className="group flex items-center gap-3 px-6 py-3 border-2 border-primary/50 text-primary rounded-lg font-semibold hover:bg-primary/10 hover:border-primary hover:scale-105 hover:shadow-md transition-all duration-300 transform"
+            className={`group flex items-center gap-3 px-6 py-3 border-2 border-primary/50 text-primary rounded-lg font-semibold hover:bg-primary/10 hover:border-primary ${isClient && !isMobile() ? 'hover:scale-105 hover:shadow-md transition-all duration-300 transform' : 'transition-colors duration-200'}`}
           >
-            <ArrowLeft size={20} className="group-hover:scale-110 transition-transform duration-200" />
+            <ArrowLeft size={20} className={isClient && !isMobile() ? "group-hover:scale-110 transition-transform duration-200" : ""} />
             Go Back
           </button>
         </div>
 
-        {/* Quick Navigation - Enhanced hover effects */}
-        <div className="glass p-6 rounded-2xl hover:scale-105 hover:shadow-xl transition-all duration-300">
+        {/* Quick Navigation - Conditional animations */}
+        <div className={`glass p-6 rounded-2xl ${isClient && !isMobile() ? 'hover:scale-105 hover:shadow-xl transition-all duration-300' : ''}`}>
           <div className="flex items-center justify-center gap-3 mb-4">
             <Zap size={24} className="text-primary" />
             <h3 className="text-lg font-semibold">Quick Navigation</h3>
@@ -94,19 +110,19 @@ const NotFound = () => {
           <div className="flex flex-wrap gap-3 justify-center">
             <Link
               href="/#about"
-              className="px-4 py-2 bg-primary/20 text-primary rounded-full hover:bg-primary/30 hover:scale-110 hover:shadow-md transition-all duration-200 transform"
+              className={`px-4 py-2 bg-primary/20 text-primary rounded-full hover:bg-primary/30 ${isClient && !isMobile() ? 'hover:scale-110 hover:shadow-md transition-all duration-200 transform' : 'transition-colors duration-200'}`}
             >
               About
             </Link>
             <Link
               href="/#projects"
-              className="px-4 py-2 bg-secondary/20 text-secondary rounded-full hover:bg-secondary/30 hover:scale-110 hover:shadow-md transition-all duration-200 transform"
+              className={`px-4 py-2 bg-secondary/20 text-secondary rounded-full hover:bg-secondary/30 ${isClient && !isMobile() ? 'hover:scale-110 hover:shadow-md transition-all duration-200 transform' : 'transition-colors duration-200'}`}
             >
               Projects
             </Link>
             <Link
               href="/#contact"
-              className="px-4 py-2 bg-primary/30 text-primary border border-primary/50 rounded-full hover:bg-primary/40 hover:border-primary hover:scale-110 hover:shadow-md transition-all duration-200 transform"
+              className={`px-4 py-2 bg-primary/30 text-primary border border-primary/50 rounded-full hover:bg-primary/40 hover:border-primary ${isClient && !isMobile() ? 'hover:scale-110 hover:shadow-md transition-all duration-200 transform' : 'transition-colors duration-200'}`}
             >
               Contact
             </Link>
