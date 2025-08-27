@@ -58,7 +58,7 @@ const NotFound = () => {
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animationDelay: `${i * 0.5}s`,
+              animationDelay: `${i * 0.2}s`,
               animationDuration: `${3 + Math.random() * 2}s`
             }}
           >
@@ -96,36 +96,36 @@ const NotFound = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up delay-500">
           <Link 
             href="/"
-            className="group flex items-center gap-3 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/30"
+            className="group flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground rounded-lg font-semibold hover:from-primary/90 hover:to-primary/70 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-primary/40 transform"
           >
-            <Home size={20} className="group-hover:animate-bounce" />
+            <Home size={20} className="group-hover:scale-110 transition-transform duration-300" />
             Back to Home
           </Link>
           
           <button 
             onClick={() => window.history.back()}
-            className="group flex items-center gap-3 px-6 py-3 border border-primary text-primary rounded-lg font-semibold hover:bg-primary/10 transition-all duration-300 hover:scale-105"
+            className="group flex items-center gap-3 px-6 py-3 border-2 border-primary/50 text-primary rounded-lg font-semibold hover:bg-primary/10 hover:border-primary transition-all duration-500 hover:scale-105 hover:shadow-lg"
           >
-            <ArrowLeft size={20} className="group-hover:animate-pulse" />
+            <ArrowLeft size={20} className="group-hover:scale-110 transition-transform duration-300" />
             Go Back
           </button>
         </div>
 
         {/* Fun Interactive Element */}
         <div className="mt-12 animate-fade-in-up delay-700">
-          <div className="glass p-6 rounded-2xl hover:scale-105 transition-transform duration-300 cursor-pointer group">
+          <div className="glass p-6 rounded-2xl hover:scale-105 transition-all duration-500 cursor-pointer group hover:shadow-xl">
             <div className="flex items-center justify-center gap-3 mb-3">
-              <Zap size={24} className="text-primary group-hover:animate-spin" />
+              <Zap size={24} className="text-primary" />
               <h3 className="text-lg font-semibold">Quick Navigation</h3>
             </div>
             <div className="flex flex-wrap gap-2 justify-center">
-              <Link href="/#about" className="px-3 py-1 text-sm bg-primary/20 text-primary rounded-full hover:bg-primary/30 transition-colors">
+              <Link href="/#about" className="px-3 py-1 text-sm bg-primary/20 text-primary rounded-full hover:bg-primary/30 transition-all duration-300">
                 About
               </Link>
-              <Link href="/#projects" className="px-3 py-1 text-sm bg-secondary/20 text-secondary rounded-full hover:bg-secondary/30 transition-colors">
+              <Link href="/#projects" className="px-3 py-1 text-sm bg-secondary/20 text-secondary rounded-full hover:bg-secondary/30 transition-all duration-300">
                 Projects
               </Link>
-              <Link href="/#contact" className="px-3 py-1 text-sm bg-accent/20 text-accent rounded-full hover:bg-accent/30 transition-colors">
+              <Link href="/#contact" className="px-3 py-1 text-sm bg-primary/30 text-primary border border-primary/50 rounded-full hover:bg-primary/40 hover:border-primary transition-all duration-300">
                 Contact
               </Link>
             </div>
@@ -147,7 +147,7 @@ const NotFound = () => {
         @keyframes fade-in-up {
           from {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(40px);
           }
           to {
             opacity: 1;
@@ -156,11 +156,11 @@ const NotFound = () => {
         }
         
         .animate-float {
-          animation: float 3s ease-in-out infinite;
+          animation: float 4s ease-in-out infinite;
         }
         
         .animate-fade-in-up {
-          animation: fade-in-up 0.6s ease-out forwards;
+          animation: fade-in-up 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
           opacity: 0;
         }
         
