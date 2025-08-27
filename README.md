@@ -5,8 +5,9 @@
 A modern, responsive portfolio website showcasing my journey as an AI enthusiast and project creator. Built with Next.js 14 and featuring a sleek dark theme with glassmorphism effects and smooth animations.
 
 # Portfolio Preview
-<img width="1918" height="988" alt="image" src="https://github.com/user-attachments/assets/9a5e4340-8f32-4e78-a806-d1e26670d9a3" />
-<img width="1919" height="985" alt="image" src="https://github.com/user-attachments/assets/1f46d547-16a5-4f3e-9ff6-9022c3065b9f" />
+[![Screenshot-2025-08-27-083444.png](https://i.postimg.cc/pVDPWpmh/Screenshot-2025-08-27-083444.png)](https://postimg.cc/V5Lx4sBm)
+---
+[![Screenshot-2025-08-27-083716.png](https://i.postimg.cc/0Q71yByR/Screenshot-2025-08-27-083716.png)](https://postimg.cc/G835MzDq)
 
 
 
@@ -19,6 +20,16 @@ A modern, responsive portfolio website showcasing my journey as an AI enthusiast
 - **Animations**: Smooth page transitions and scroll animations
 - **Projects Showcase**: Modern grid layout for projects
 - **Performance**: Optimized loading and rendering
+
+## �  The Perfect Score
+
+Achieved a perfect 100 in all categories on Google PageSpeed Insights for both Mobile and Desktop.
+
+| Mobile | Desktop |
+|---|---|
+| [![Mobile Score](https://i.postimg.cc/gJxrtdsy/Screenshot-2025-08-27-082307.png)](https://postimg.cc/WFP2tBQt) | [![Desktop Score](https://i.postimg.cc/JnFMskbZ/Screenshot-2025-08-27-082233.png)](https://postimg.cc/2bnPJ39S) |
+
+Don't believe me? [**See the live report!**](https://pagespeed.web.dev/analysis/https-ryanwez-github-io/fj76fomlk7?hl=en&form_factor=mobile) 😎
 
 ## 🛠️ Built With
 
