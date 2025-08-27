@@ -94,9 +94,9 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code", // Replace with actual code
-    yandex: "your-yandex-verification-code", // Replace with actual code
-    yahoo: "your-yahoo-verification-code", // Replace with actual code
+    google: "tUDqk_vr2ti4COAvMzFu4jsw28WjEKWvf55xZtWO798",
+    yandex: "69cf6376aadb1033",
+    yahoo: "07AB2E07C877344005C6261F81933521",
   },
   alternates: {
     canonical: siteUrl,
