@@ -1,3 +1,16 @@
 User-agent: *
 Allow: /
+
+# Disallow admin or private areas (if any)
+Disallow: /admin/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Crawl delay (optional)
+Crawl-delay: 1
+
+# Host
+Host: https://ryanwez.github.io
+
+# Sitemaps
 Sitemap: https://ryanwez.github.io/sitemap.xml

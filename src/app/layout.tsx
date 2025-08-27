@@ -15,12 +15,26 @@ const siteUrl = 'https://ryanwez.github.io';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Ryan Wez - AI Enthusiast & Project Creator",
-  description: "The personal portfolio of Ryan Wez, an AI Enthusiast and Project Creator showcasing modern web applications and intelligent chatbots. Explore projects like SayarKaung, Employee-MM, and MiYanMar AI.",
-  keywords: ["Ryan Wez", "RyanWez", "AI Enthusiast", "Web Developer", "Project Creator", "React", "Next.js", "TypeScript", "Portfolio", "Myanmar AI developer", "Next.js developer in Myanmar", "Telegram Bot Developer"],
+  title: {
+    default: "Ryan Wez - AI Enthusiast & Project Creator",
+    template: "%s | Ryan Wez"
+  },
+  description: "Professional portfolio of Ryan Wez - AI Enthusiast, Web Developer & Project Creator. Specializing in modern web applications, intelligent chatbots, and AI-powered solutions. Explore innovative projects and get in touch for collaborations.",
+  keywords: [
+    "Ryan Wez", "RyanWez", "AI Enthusiast", "Web Developer", "Project Creator", 
+    "React Developer", "Next.js", "TypeScript", "JavaScript", "Portfolio", 
+    "Myanmar AI developer", "Chatbot Developer", "Telegram Bot Developer",
+    "Full Stack Developer", "Frontend Developer", "AI Integration", "Machine Learning",
+    "Web Applications", "Modern Web Development", "Responsive Design", "SEO Optimization"
+  ],
   authors: [{ name: "Ryan Wez", url: siteUrl }],
   creator: "Ryan Wez",
   publisher: "Ryan Wez",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any', type: 'image/x-icon' },
@@ -30,57 +44,112 @@ export const metadata: Metadata = {
     ],
     apple: '/apple-touch-icon.png',
   },
+  manifest: '/site.webmanifest',
   openGraph: {
     type: "website",
     locale: "en_US",
     url: siteUrl,
     title: "Ryan Wez - AI Enthusiast & Project Creator",
-    description: "The personal portfolio of Ryan Wez, an AI Enthusiast and Project Creator showcasing modern web applications and intelligent chatbots.",
+    description: "Professional portfolio showcasing innovative AI-powered web applications and intelligent solutions. Explore cutting-edge projects and collaborate on your next big idea.",
     siteName: "Ryan Wez Portfolio",
     images: [
       {
-        url: `/favicon.svg`,
+        url: `/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "Ryan Wez Portfolio",
+        alt: "Ryan Wez - AI Enthusiast & Project Creator Portfolio",
+        type: "image/png",
+      },
+      {
+        url: `/og-image-square.png`,
+        width: 400,
+        height: 400,
+        alt: "Ryan Wez Profile",
+        type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ryan Wez - AI Enthusiast & Project Creator",
-    description: "The personal portfolio of Ryan Wez, an AI Enthusiast and Project Creator showcasing modern web applications and intelligent chatbots.",
-    images: [`/mona.webp`],
+    site: "@RyanWez",
     creator: "@RyanWez",
+    title: "Ryan Wez - AI Enthusiast & Project Creator",
+    description: "Professional portfolio showcasing innovative AI-powered web applications and intelligent solutions.",
+    images: {
+      url: `/og-image.png`,
+      alt: "Ryan Wez Portfolio",
+    },
   },
   robots: {
     index: true,
     follow: true,
+    nocache: true,
     googleBot: {
       index: true,
       follow: true,
+      noimageindex: false,
       "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,
     },
   },
+  verification: {
+    google: "your-google-verification-code", // Replace with actual code
+    yandex: "your-yandex-verification-code", // Replace with actual code
+    yahoo: "your-yahoo-verification-code", // Replace with actual code
+  },
+  alternates: {
+    canonical: siteUrl,
+  },
+  category: 'technology',
 };
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Person',
+  '@type': ['Person', 'WebSite'],
   name: 'Ryan Wez',
+  alternateName: 'RyanWez',
   url: siteUrl,
+  image: `${siteUrl}/og-image.png`,
+  description: 'AI Enthusiast & Project Creator specializing in modern web applications and intelligent solutions',
   sameAs: [
     'https://github.com/RyanWez',
     'https://www.facebook.com/ryanwez0',
     'https://t.me/RyanWez',
   ],
   jobTitle: 'AI Enthusiast & Project Creator',
+  hasOccupation: {
+    '@type': 'Occupation',
+    name: 'Web Developer',
+    occupationLocation: {
+      '@type': 'Country',
+      name: 'Myanmar'
+    },
+    skills: ['React', 'Next.js', 'TypeScript', 'AI Integration', 'Web Development']
+  },
   worksFor: {
     '@type': 'Organization',
-    name: 'Ryan Wez',
+    name: 'Freelance',
   },
+  knowsAbout: [
+    'Artificial Intelligence',
+    'Web Development', 
+    'React',
+    'Next.js',
+    'TypeScript',
+    'Chatbot Development',
+    'Frontend Development',
+    'Full Stack Development'
+  ],
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': siteUrl
+  },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `${siteUrl}/?q={search_term_string}`,
+    'query-input': 'required name=search_term_string'
+  }
 };
 
 export default function RootLayout({
@@ -96,6 +165,27 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta name="theme-color" content="#5DADE2" />
+        <meta name="color-scheme" content="dark light" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Ryan Wez" />
+        <meta name="application-name" content="Ryan Wez Portfolio" />
+        <meta name="msapplication-TileColor" content="#5DADE2" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
+        
+        {/* Preload critical resources */}
+        <link rel="preload" href="/og-image.png" as="image" type="image/png" />
+        
+        {/* Additional SEO meta tags */}
+        <meta name="geo.region" content="MM" />
+        <meta name="geo.country" content="Myanmar" />
+        <meta name="language" content="English" />
+        <meta name="rating" content="General" />
+        <meta name="distribution" content="Global" />
+        <meta name="revisit-after" content="7 days" />
+        
         <style dangerouslySetInnerHTML={{
           __html: `
             body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; }
@@ -107,6 +197,30 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Ryan Wez Portfolio",
+              "url": siteUrl,
+              "description": "Professional portfolio of Ryan Wez - AI Enthusiast & Project Creator",
+              "inLanguage": "en-US",
+              "isAccessibleForFree": true,
+              "creator": {
+                "@type": "Person",
+                "name": "Ryan Wez"
+              },
+              "mainEntity": {
+                "@type": "Person",
+                "name": "Ryan Wez",
+                "jobTitle": "AI Enthusiast & Project Creator",
+                "url": siteUrl
+              }
+            })
+          }}
         />
       </head>
       <body className={cn("min-h-screen bg-background font-sans antialiased", inter.variable)}>

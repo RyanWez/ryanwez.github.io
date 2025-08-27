@@ -27,11 +27,15 @@ export default function Home() {
     // Remove preloader immediately for better performance
     setLoading(false);
     
-    // Register service worker for caching
-    if ('serviceWorker' in navigator) {
+    // Register service worker for caching (only in production)
+    if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
       navigator.serviceWorker.register('/sw.js')
-        .then(() => console.log('SW registered'))
-        .catch(() => console.log('SW registration failed'));
+        .then((registration) => {
+          console.log('SW registered successfully:', registration.scope);
+        })
+        .catch((error) => {
+          console.log('SW registration failed:', error);
+        });
     }
   }, []);
 
