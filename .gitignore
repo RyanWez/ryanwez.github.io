@@ -38,6 +38,7 @@ next-env.d.ts
 # Static build files (should not be in main branch)
 /index.html
 /404.html
+/404/
 /_next/
 /icons/
 /images/
