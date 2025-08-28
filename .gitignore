@@ -1,7 +1,10 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
 # dependencies
 /node_modules
 /.pnp
 .pnp.js
+.yarn/install-state.gz
 
 # testing
 /coverage
@@ -24,7 +27,6 @@ yarn-error.log*
 
 # local env files
 .env*.local
-.env
 
 # vercel
 .vercel
@@ -33,9 +35,18 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# IDE
-.vscode
-.idea
-
-# OS generated files
-Thumbs.db
+# Static build files (should not be in main branch)
+/index.html
+/404.html
+/_next/
+/icons/
+/images/
+/projects/
+/browserconfig.xml
+/googletUDqk_vr2ti4COAvMzFu4jsw28WjEKWvf55xZtWO798.html
+/yandex_69cf6376aadb1033.html
+/site.webmanifest
+/sitemap.xml
+/sw.js
+/index.txt
+/_headers
