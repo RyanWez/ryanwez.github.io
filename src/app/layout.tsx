@@ -163,11 +163,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Critical performance optimizations */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        {/* Critical performance optimizations - Google Font preconnect is handled automatically by Next.js */}
         <link rel="dns-prefetch" href="https://github.com" />
         <link rel="dns-prefetch" href="https://t.me" />
         <link rel="dns-prefetch" href="https://facebook.com" />
@@ -188,18 +184,6 @@ export default function RootLayout({
 
         {/* Critical resource preloads - only essential ones */}
         <link rel="preload" href="/images/mona.webp" as="image" type="image/webp" fetchPriority="high" />
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            (function(){
-              var link = document.createElement('link');
-              link.rel = 'preload';
-              link.as = 'style';
-              link.href = '/_next/static/css/app/layout.css';
-              link.onload = function(){this.onload=null;this.rel='stylesheet'};
-              document.head.appendChild(link);
-            })();
-          `
-        }} />
 
         {/* Telegram-specific meta tags */}
         <meta property="telegram:image" content="/images/og-image.png" />

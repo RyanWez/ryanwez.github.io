@@ -2,6 +2,7 @@
 const nextConfig = {
   output: 'export',
   trailingSlash: true,
+  distDir: 'out',
   images: {
     unoptimized: true,
     formats: ['image/webp', 'image/avif'],
@@ -9,8 +10,10 @@ const nextConfig = {
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
-  basePath: process.env.NODE_ENV === 'production' ? '' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',
+  
+  // Ensure proper asset handling for GitHub Pages
+  basePath: '',
+  assetPrefix: '',
 
   // Performance optimizations
   compress: true,
