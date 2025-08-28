@@ -15,12 +15,17 @@ export function AnimatedThemeToggler({ className }: Props) {
   const toggleTheme = () => {
     const newTheme = resolvedTheme === "dark" ? "light" : "dark";
 
-    if (!document.startViewTransition) {
+    // Type assertion for startViewTransition which is experimental
+    const documentWithTransition = document as Document & {
+      startViewTransition?: (callback: () => void) => void;
+    };
+
+    if (!documentWithTransition.startViewTransition) {
       setTheme(newTheme);
       return;
     }
 
-    document.startViewTransition(() => {
+    documentWithTransition.startViewTransition(() => {
       flushSync(() => {
         setTheme(newTheme);
       });
