@@ -163,7 +163,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Performance optimizations */}
+        {/* Critical performance optimizations */}
         <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
@@ -186,11 +186,20 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#5DADE2" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
 
-        {/* Preload critical resources */}
-        <link rel="preload" href="/images/og-image.png" as="image" type="image/png" />
-        <link rel="preload" href="/images/mona.webp" as="image" type="image/webp" />
-        <link rel="modulepreload" href="/_next/static/chunks/main-app.js" />
-        <link rel="modulepreload" href="/_next/static/chunks/polyfills.js" />
+        {/* Critical resource preloads - only essential ones */}
+        <link rel="preload" href="/images/mona.webp" as="image" type="image/webp" fetchPriority="high" />
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            (function(){
+              var link = document.createElement('link');
+              link.rel = 'preload';
+              link.as = 'style';
+              link.href = '/_next/static/css/app/layout.css';
+              link.onload = function(){this.onload=null;this.rel='stylesheet'};
+              document.head.appendChild(link);
+            })();
+          `
+        }} />
 
         {/* Telegram-specific meta tags */}
         <meta property="telegram:image" content="/images/og-image.png" />
@@ -217,17 +226,23 @@ export default function RootLayout({
 
         <style dangerouslySetInnerHTML={{
           __html: `
-            body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; font-display: swap; }
-            .preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #1A202C; display: flex; justify-content: center; align-items: center; z-index: 9999; will-change: opacity; }
-            .preloader-hidden { opacity: 0; pointer-events: none; transition: opacity 0.3s ease-out; }
-            .fade-in-element { opacity: 0; transform: translate3d(0, 20px, 0); transition: opacity 0.3s ease-out, transform 0.3s ease-out; will-change: opacity, transform; }
-            .is-visible { opacity: 1; transform: translate3d(0, 0, 0); }
-            * { box-sizing: border-box; }
-            html { scroll-behavior: smooth; }
-            img { max-width: 100%; height: auto; }
-            @media (prefers-reduced-motion: reduce) { 
-              *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
-            }
+            *,*::before,*::after{box-sizing:border-box}
+            html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+            body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-display:swap;line-height:1.6;color:#333;background:#fff}
+            .dark body{color:#fff;background:#1a202c}
+            .preloader{position:fixed;top:0;left:0;width:100%;height:100%;background:#1a202c;display:flex;justify-content:center;align-items:center;z-index:9999;will-change:opacity}
+            .preloader-hidden{opacity:0;pointer-events:none;transition:opacity .3s ease-out}
+            .hero-section{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative}
+            .hero-content{text-align:center;max-width:800px;padding:2rem}
+            .hero-title{font-size:clamp(2rem,5vw,4rem);font-weight:700;margin-bottom:1rem;line-height:1.2}
+            .hero-subtitle{font-size:clamp(1rem,2.5vw,1.5rem);opacity:0.8;margin-bottom:2rem}
+            .navbar{position:fixed;top:0;width:100%;z-index:1000;backdrop-filter:blur(10px);background:rgba(255,255,255,0.8)}
+            .dark .navbar{background:rgba(26,32,44,0.8)}
+            img{max-width:100%;height:auto;loading:lazy}
+            .fade-in-element{opacity:0;transform:translate3d(0,20px,0);transition:opacity .3s ease-out,transform .3s ease-out;will-change:opacity,transform}
+            .is-visible{opacity:1;transform:translate3d(0,0,0)}
+            @media(max-width:768px){.fade-in-element{transform:translate3d(0,10px,0)}.hero-content{padding:1rem}}
+            @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
           `
         }} />
         <script

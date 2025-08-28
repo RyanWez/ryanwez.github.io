@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Preloader from '@/components/Preloader';
 import BackToTop from '@/components/BackToTop';
+import { initPerformanceOptimizations } from '@/lib/performance';
 
 // Lazy-loaded components with loading states
 const AboutSection = dynamic(() => import('@/components/AboutSection'), {
@@ -24,19 +25,36 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Remove preloader immediately for better performance
-    setLoading(false);
+    // Initialize performance optimizations immediately
+    initPerformanceOptimizations();
+    
+    // Optimize preloader timing
+    const timer = setTimeout(() => setLoading(false), 100);
     
     // Register service worker for caching (only in production)
     if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
-      navigator.serviceWorker.register('/sw.js')
+      // Defer SW registration to avoid blocking main thread
+      const registerSW = () => {
+        navigator.serviceWorker.register('/sw.js', {
+          scope: '/',
+          updateViaCache: 'none'
+        })
         .then((registration) => {
           console.log('SW registered successfully:', registration.scope);
         })
         .catch((error) => {
           console.log('SW registration failed:', error);
         });
+      };
+
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(registerSW);
+      } else {
+        setTimeout(registerSW, 2000);
+      }
     }
+    
+    return () => clearTimeout(timer);
   }, []);
 
   return (

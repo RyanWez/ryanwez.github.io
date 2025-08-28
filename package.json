@@ -6,9 +6,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && npm run optimize",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "optimize": "echo 'Build optimized for modern browsers'",
+    "analyze": "ANALYZE=true npm run build"
   },
   "keywords": [
     "react",

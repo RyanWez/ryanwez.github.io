@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ryanwez-portfolio-v3';
+const CACHE_NAME = 'ryanwez-portfolio-v4';
 const STATIC_CACHE_URLS = [
   '/',
   '/icons/favicon.ico',
@@ -8,11 +8,18 @@ const STATIC_CACHE_URLS = [
   '/site.webmanifest'
 ];
 
-// Cache strategies
+// Cache strategies with better performance
 const CACHE_STRATEGIES = {
   CACHE_FIRST: 'cache-first',
   NETWORK_FIRST: 'network-first',
   STALE_WHILE_REVALIDATE: 'stale-while-revalidate'
+};
+
+// Performance optimized cache duration
+const CACHE_DURATION = {
+  STATIC: 31536000, // 1 year for static assets
+  DYNAMIC: 86400,   // 1 day for dynamic content
+  API: 3600         // 1 hour for API responses
 };
 
 // Install event - cache essential resources

@@ -6,50 +6,72 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
 
-# Cache static assets for 1 year
+# Cache static assets for 1 year with better compression
 /*.js
   Cache-Control: public, max-age=31536000, immutable
+  Content-Encoding: gzip
+  Vary: Accept-Encoding
 
 /*.css
   Cache-Control: public, max-age=31536000, immutable
+  Content-Encoding: gzip
+  Vary: Accept-Encoding
 
-# Cache images for 1 year
+# Cache images for 1 year with optimized headers
 /*.png
   Cache-Control: public, max-age=31536000, immutable
+  Content-Type: image/png
 
 /*.jpg
   Cache-Control: public, max-age=31536000, immutable
+  Content-Type: image/jpeg
 
 /*.jpeg
   Cache-Control: public, max-age=31536000, immutable
+  Content-Type: image/jpeg
 
 /*.gif
   Cache-Control: public, max-age=31536000, immutable
+  Content-Type: image/gif
 
 /*.ico
   Cache-Control: public, max-age=31536000, immutable
+  Content-Type: image/x-icon
 
 /*.svg
   Cache-Control: public, max-age=31536000, immutable
+  Content-Type: image/svg+xml
+  Content-Encoding: gzip
+  Vary: Accept-Encoding
 
 /*.webp
   Cache-Control: public, max-age=31536000, immutable
+  Content-Type: image/webp
 
 /*.avif
   Cache-Control: public, max-age=31536000, immutable
+  Content-Type: image/avif
 
-# Cache fonts for 1 year
+# Cache fonts for 1 year with preload hints
 /*.woff
   Cache-Control: public, max-age=31536000, immutable
+  Content-Type: font/woff
+  Access-Control-Allow-Origin: *
 
 /*.woff2
   Cache-Control: public, max-age=31536000, immutable
+  Content-Type: font/woff2
+  Access-Control-Allow-Origin: *
 
 /*.ttf
   Cache-Control: public, max-age=31536000, immutable
+  Content-Type: font/ttf
+  Access-Control-Allow-Origin: *
 
 /*.eot
   Cache-Control: public, max-age=31536000, immutable
+  Content-Type: application/vnd.ms-fontobject
+  Access-Control-Allow-Origin: *
 
 # Cache HTML for shorter time
 /*.html
