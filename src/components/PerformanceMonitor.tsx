@@ -14,13 +14,14 @@ const PerformanceMonitor = () => {
     // Measure Core Web Vitals
     const measureWebVitals = async () => {
       try {
-        const { getCLS, getFID, getFCP, getLCP, getTTFB } = await import('web-vitals');
+        // Web Vitals v5 API
+        const { onCLS, onFCP, onLCP, onTTFB, onINP } = await import('web-vitals');
         
-        getCLS(reportWebVitals);
-        getFID(reportWebVitals);
-        getFCP(reportWebVitals);
-        getLCP(reportWebVitals);
-        getTTFB(reportWebVitals);
+        onCLS(reportWebVitals);
+        onFCP(reportWebVitals);
+        onLCP(reportWebVitals);
+        onTTFB(reportWebVitals);
+        onINP(reportWebVitals); // INP replaces FID in v5
       } catch (error) {
         console.warn('Web Vitals not available:', error);
       }

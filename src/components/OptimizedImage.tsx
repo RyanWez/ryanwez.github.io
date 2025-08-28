@@ -1,5 +1,6 @@
 'use client';
 import { useState, useCallback } from 'react';
+import Image from 'next/image';
 
 interface OptimizedImageProps {
   src: string;
@@ -8,26 +9,21 @@ interface OptimizedImageProps {
   height?: number;
   className?: string;
   priority?: boolean;
-  loading?: 'lazy' | 'eager';
-  placeholder?: string;
+  placeholder?: 'blur' | 'empty';
+  blurDataURL?: string;
 }
 
 const OptimizedImage = ({ 
   src, 
   alt, 
-  width, 
-  height, 
+  width = 400, 
+  height = 300, 
   className = '', 
   priority = false,
-  loading = 'lazy',
-  placeholder = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjY2NjIi8+PC9zdmc+'
+  placeholder = 'empty',
+  blurDataURL = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjY2NjIi8+PC9zdmc+'
 }: OptimizedImageProps) => {
-  const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
-
-  const handleLoad = useCallback(() => {
-    setIsLoaded(true);
-  }, []);
 
   const handleError = useCallback(() => {
     setHasError(true);
@@ -45,20 +41,17 @@ const OptimizedImage = ({
   }
 
   return (
-    <img
+    <Image
       src={src}
       alt={alt}
       width={width}
       height={height}
-      className={`transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'} ${className}`}
-      loading={priority ? 'eager' : loading}
-      onLoad={handleLoad}
+      className={`transition-opacity duration-300 ${className}`}
+      priority={priority}
+      placeholder={placeholder}
+      blurDataURL={blurDataURL}
       onError={handleError}
-      style={{
-        backgroundImage: `url(${placeholder})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
+      unoptimized={true} // Required for static export
     />
   );
 };

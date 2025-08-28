@@ -73,7 +73,7 @@ self.addEventListener('fetch', (event) => {
           // Cache successful responses for static assets
           const responseToCache = response.clone();
           const url = new URL(event.request.url);
-          
+
           // Cache static assets (JS, CSS, images, fonts)
           if (url.pathname.match(/\.(js|css|png|jpg|jpeg|gif|ico|svg|webp|woff|woff2|ttf|eot)$/)) {
             caches.open(CACHE_NAME).then((cache) => {
