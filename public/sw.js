@@ -1,11 +1,19 @@
-const CACHE_NAME = 'ryanwez-portfolio-v2';
+const CACHE_NAME = 'ryanwez-portfolio-v3';
 const STATIC_CACHE_URLS = [
   '/',
-  '/favicon.ico',
-  '/favicon.svg',
-  '/og-image.png',
+  '/icons/favicon.ico',
+  '/icons/favicon.svg',
+  '/images/og-image.png',
+  '/images/mona.webp',
   '/site.webmanifest'
 ];
+
+// Cache strategies
+const CACHE_STRATEGIES = {
+  CACHE_FIRST: 'cache-first',
+  NETWORK_FIRST: 'network-first',
+  STALE_WHILE_REVALIDATE: 'stale-while-revalidate'
+};
 
 // Install event - cache essential resources
 self.addEventListener('install', (event) => {

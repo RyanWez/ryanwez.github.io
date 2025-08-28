@@ -8,7 +8,9 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
   display: 'swap',
-  preload: true
+  preload: true,
+  fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+  adjustFontFallback: true
 });
 
 const siteUrl = 'https://ryanwez.github.io';
@@ -161,10 +163,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        {/* Performance optimizations */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        <link rel="dns-prefetch" href="https://github.com" />
+        <link rel="dns-prefetch" href="https://t.me" />
+        <link rel="dns-prefetch" href="https://facebook.com" />
 
         {/* Primary favicon for Telegram and other social platforms */}
         <link rel="icon" href="/images/og-image.png" type="image/png" />
@@ -182,6 +188,9 @@ export default function RootLayout({
 
         {/* Preload critical resources */}
         <link rel="preload" href="/images/og-image.png" as="image" type="image/png" />
+        <link rel="preload" href="/images/mona.webp" as="image" type="image/webp" />
+        <link rel="modulepreload" href="/_next/static/chunks/main-app.js" />
+        <link rel="modulepreload" href="/_next/static/chunks/polyfills.js" />
 
         {/* Telegram-specific meta tags */}
         <meta property="telegram:image" content="/images/og-image.png" />
@@ -208,10 +217,17 @@ export default function RootLayout({
 
         <style dangerouslySetInnerHTML={{
           __html: `
-            body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; }
-            .preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #1A202C; display: flex; justify-content: center; align-items: center; z-index: 9999; }
-            .fade-in-element { opacity: 0; transform: translate3d(0, 20px, 0); transition: opacity 0.3s ease-out, transform 0.3s ease-out; }
+            body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; font-display: swap; }
+            .preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #1A202C; display: flex; justify-content: center; align-items: center; z-index: 9999; will-change: opacity; }
+            .preloader-hidden { opacity: 0; pointer-events: none; transition: opacity 0.3s ease-out; }
+            .fade-in-element { opacity: 0; transform: translate3d(0, 20px, 0); transition: opacity 0.3s ease-out, transform 0.3s ease-out; will-change: opacity, transform; }
             .is-visible { opacity: 1; transform: translate3d(0, 0, 0); }
+            * { box-sizing: border-box; }
+            html { scroll-behavior: smooth; }
+            img { max-width: 100%; height: auto; }
+            @media (prefers-reduced-motion: reduce) { 
+              *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+            }
           `
         }} />
         <script
