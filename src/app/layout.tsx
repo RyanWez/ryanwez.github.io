@@ -39,15 +39,9 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/images/og-image.png', sizes: '1200x630', type: 'image/png' },
-      { url: '/icons/favicon.ico', sizes: 'any', type: 'image/x-icon' },
       { url: '/icons/favicon.svg', type: 'image/svg+xml' },
-      { url: '/icons/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/icons/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
     ],
-    apple: '/icons/apple-touch-icon.png',
   },
-  manifest: '/site.webmanifest',
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -55,22 +49,6 @@ export const metadata: Metadata = {
     title: "Ryan Wez - AI Enthusiast & Project Creator",
     description: "Professional portfolio showcasing innovative AI-powered web applications and intelligent solutions. Explore cutting-edge projects and collaborate on your next big idea.",
     siteName: "Ryan Wez Portfolio",
-    images: [
-      {
-        url: `/images/og-image.png`,
-        width: 1200,
-        height: 630,
-        alt: "Ryan Wez - AI Enthusiast & Project Creator Portfolio",
-        type: "image/png",
-      },
-      {
-        url: `/images/og-image-square.png`,
-        width: 400,
-        height: 400,
-        alt: "Ryan Wez Profile",
-        type: "image/png",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -78,10 +56,6 @@ export const metadata: Metadata = {
     creator: "@RyanWez",
     title: "Ryan Wez - AI Enthusiast & Project Creator",
     description: "Professional portfolio showcasing innovative AI-powered web applications and intelligent solutions.",
-    images: {
-      url: `/images/og-image.png`,
-      alt: "Ryan Wez Portfolio",
-    },
   },
   robots: {
     index: true,
@@ -113,7 +87,6 @@ const jsonLd = {
   name: 'Ryan Wez',
   alternateName: 'RyanWez',
   url: siteUrl,
-  image: `${siteUrl}/images/og-image.png`,
   description: 'AI Enthusiast & Project Creator specializing in modern web applications and intelligent solutions',
   sameAs: [
     'https://github.com/RyanWez',
@@ -168,26 +141,16 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://t.me" />
         <link rel="dns-prefetch" href="https://facebook.com" />
 
-        {/* Primary favicon for Telegram and other social platforms */}
-        <link rel="icon" href="/images/og-image.png" type="image/png" />
-        <link rel="shortcut icon" href="/images/og-image.png" type="image/png" />
+        {/* Primary favicon */}
+        <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml" />
+        <link rel="shortcut icon" href="/icons/favicon.svg" type="image/svg+xml" />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <meta name="theme-color" content="#5DADE2" />
         <meta name="color-scheme" content="dark light" />
-        <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="Ryan Wez" />
-        <meta name="application-name" content="Ryan Wez Portfolio" />
-        <meta name="msapplication-TileColor" content="#5DADE2" />
-        <meta name="msapplication-config" content="/browserconfig.xml" />
 
         {/* Critical resource preloads - only essential ones */}
         <link rel="preload" href="/images/mona.webp" as="image" type="image/webp" fetchPriority="high" />
 
-        {/* Telegram-specific meta tags */}
-        <meta property="telegram:image" content="/images/og-image.png" />
-        <meta name="telegram:image" content="/images/og-image.png" />
 
         {/* Search Engine Verification */}
         <meta name="msvalidate.01" content="07AB2E07C877344005C6261F81933521" />
@@ -271,3 +234,4 @@ export default function RootLayout({
     </html>
   );
 }
+

@@ -31,28 +31,6 @@ export default function Home() {
     // Optimize preloader timing
     const timer = setTimeout(() => setLoading(false), 100);
     
-    // Register service worker for caching (only in production)
-    if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
-      // Defer SW registration to avoid blocking main thread
-      const registerSW = () => {
-        navigator.serviceWorker.register('/sw.js', {
-          scope: '/',
-          updateViaCache: 'none'
-        })
-        .then((registration) => {
-          console.log('SW registered successfully:', registration.scope);
-        })
-        .catch((error) => {
-          console.log('SW registration failed:', error);
-        });
-      };
-
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(registerSW);
-      } else {
-        setTimeout(registerSW, 2000);
-      }
-    }
     
     return () => clearTimeout(timer);
   }, []);

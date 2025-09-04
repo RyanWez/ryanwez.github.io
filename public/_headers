@@ -76,10 +76,3 @@
 # Cache HTML for shorter time
 /*.html
   Cache-Control: public, max-age=3600
-
-# Cache manifest and service worker for shorter time
-/site.webmanifest
-  Cache-Control: public, max-age=86400
-
-/sw.js
-  Cache-Control: public, max-age=0, must-revalidate
