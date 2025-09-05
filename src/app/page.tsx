@@ -5,17 +5,18 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Preloader from '@/components/Preloader';
 import BackToTop from '@/components/BackToTop';
+import { Loading } from '@/components/ui/loading';
 import { initPerformanceOptimizations } from '@/lib/performance';
 
 // Lazy-loaded components with loading states
 const AboutSection = dynamic(() => import('@/components/AboutSection'), {
-  loading: () => <div className="min-h-screen flex items-center justify-center"><div className="animate-pulse">Loading...</div></div>
+  loading: () => <Loading />
 });
 const ProjectsSection = dynamic(() => import('@/components/ProjectsSection'), {
-  loading: () => <div className="min-h-screen flex items-center justify-center"><div className="animate-pulse">Loading...</div></div>
+  loading: () => <Loading />
 });
 const ContactSection = dynamic(() => import('@/components/ContactSection'), {
-  loading: () => <div className="min-h-screen flex items-center justify-center"><div className="animate-pulse">Loading...</div></div>
+  loading: () => <Loading />
 });
 const Footer = dynamic(() => import('@/components/Footer'), {
   loading: () => null
@@ -29,7 +30,7 @@ export default function Home() {
     initPerformanceOptimizations();
     
     // Optimize preloader timing
-    const timer = setTimeout(() => setLoading(false), 100);
+    const timer = setTimeout(() => setLoading(false), 500);
     
     
     return () => clearTimeout(timer);

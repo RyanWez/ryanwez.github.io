@@ -2,7 +2,7 @@
 export const performanceUtils = {
   // Lazy load images with intersection observer
   lazyLoadImages: () => {
-    if ('IntersectionObserver' in window) {
+    if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
       const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -22,25 +22,27 @@ export const performanceUtils = {
 
   // Preload critical resources
   preloadCriticalResources: () => {
-    const criticalResources = [
-      '/images/mona.webp'
-    ];
+    if (typeof window !== 'undefined') {
+      const criticalResources = [
+        '/images/mona.webp'
+      ];
 
-    criticalResources.forEach(resource => {
-      const link = document.createElement('link');
-      link.rel = 'preload';
-      link.href = resource;
-      link.as = resource.endsWith('.css') ? 'style' : 'image';
-      if (resource.endsWith('.webp')) {
-        link.type = 'image/webp';
-      }
-      document.head.appendChild(link);
-    });
+      criticalResources.forEach(resource => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.href = resource;
+        link.as = resource.endsWith('.css') ? 'style' : 'image';
+        if (resource.endsWith('.webp')) {
+          link.type = 'image/webp';
+        }
+        document.head.appendChild(link);
+      });
+    }
   },
 
   // Optimize font loading
   optimizeFontLoading: () => {
-    if ('fonts' in document) {
+    if (typeof window !== 'undefined' && 'fonts' in document) {
       // Font optimization is handled by Next.js font optimization
       // No manual font loading needed for Google Fonts imported via next/font/google
     }
@@ -48,22 +50,45 @@ export const performanceUtils = {
 
   // Reduce layout shifts
   preventLayoutShift: () => {
-    // Add aspect ratio containers for images
-    const images = document.querySelectorAll('img');
-    images.forEach(img => {
-      if (!img.style.aspectRatio && img.width && img.height) {
-        img.style.aspectRatio = `${img.width} / ${img.height}`;
-      }
-    });
+    if (typeof window !== 'undefined') {
+      // Add aspect ratio containers for images
+      const images = document.querySelectorAll('img');
+      images.forEach(img => {
+        if (!img.style.aspectRatio && img.width && img.height) {
+          img.style.aspectRatio = `${img.width} / ${img.height}`;
+        }
+      });
+    }
   },
 
   // Optimize animations for mobile
   optimizeAnimations: () => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    
-    if (prefersReducedMotion.matches) {
-      document.documentElement.style.setProperty('--animation-duration', '0.01ms');
-      document.documentElement.style.setProperty('--transition-duration', '0.01ms');
+    if (typeof window !== 'undefined') {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+      const handleMotionPreference = (e: MediaQueryListEvent) => {
+        if (e.matches) {
+          document.documentElement.style.setProperty('--animation-duration', '0.01ms');
+          document.documentElement.style.setProperty('--transition-duration', '0.01ms');
+        } else {
+          document.documentElement.style.removeProperty('--animation-duration');
+          document.documentElement.style.removeProperty('--transition-duration');
+        }
+      };
+
+      // Check initial state
+      if (prefersReducedMotion.matches) {
+        document.documentElement.style.setProperty('--animation-duration', '0.01ms');
+        document.documentElement.style.setProperty('--transition-duration', '0.01ms');
+      }
+
+      // Listen for changes
+      prefersReducedMotion.addEventListener('change', handleMotionPreference);
+
+      // Cleanup on page unload or reload
+      window.addEventListener('beforeunload', () => {
+        prefersReducedMotion.removeEventListener('change', handleMotionPreference);
+      });
     }
   }
 };

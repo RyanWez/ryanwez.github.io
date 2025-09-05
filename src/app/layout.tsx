@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { siteUrl, siteKeywords, siteDescription, openGraphDescription } from "@/lib/metadata";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -13,22 +14,14 @@ const inter = Inter({
   adjustFontFallback: true
 });
 
-const siteUrl = 'https://ryanwez.github.io';
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: "Ryan Wez - AI Enthusiast & Project Creator",
     template: "%s | Ryan Wez"
   },
-  description: "Professional portfolio of Ryan Wez - AI Enthusiast, Web Developer & Project Creator. Specializing in modern web applications, intelligent chatbots, and AI-powered solutions. Explore innovative projects and get in touch for collaborations.",
-  keywords: [
-    "Ryan Wez", "RyanWez", "AI Enthusiast", "Web Developer", "Project Creator",
-    "React Developer", "Next.js", "TypeScript", "JavaScript", "Portfolio",
-    "Myanmar AI developer", "Chatbot Developer", "Telegram Bot Developer",
-    "Full Stack Developer", "Frontend Developer", "AI Integration", "Machine Learning",
-    "Web Applications", "Modern Web Development", "Responsive Design", "SEO Optimization"
-  ],
+  description: siteDescription,
+  keywords: siteKeywords,
   authors: [{ name: "Ryan Wez", url: siteUrl }],
   creator: "Ryan Wez",
   publisher: "Ryan Wez",
@@ -47,7 +40,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     title: "Ryan Wez - AI Enthusiast & Project Creator",
-    description: "Professional portfolio showcasing innovative AI-powered web applications and intelligent solutions. Explore cutting-edge projects and collaborate on your next big idea.",
+    description: openGraphDescription,
     siteName: "Ryan Wez Portfolio",
   },
   twitter: {
@@ -55,7 +48,7 @@ export const metadata: Metadata = {
     site: "@RyanWez",
     creator: "@RyanWez",
     title: "Ryan Wez - AI Enthusiast & Project Creator",
-    description: "Professional portfolio showcasing innovative AI-powered web applications and intelligent solutions.",
+    description: openGraphDescription,
   },
   robots: {
     index: true,
@@ -234,4 +227,3 @@ export default function RootLayout({
     </html>
   );
 }
-
