@@ -145,6 +145,9 @@ export default function RootLayout({
         <link rel="preload" href="/images/mona.webp" as="image" type="image/webp" fetchPriority="high" />
 
 
+        {/* Google AdSense */}
+        <meta name="google-adsense-account" content="ca-pub-8320325997835044" />
+
         {/* Search Engine Verification */}
         <meta name="msvalidate.01" content="07AB2E07C877344005C6261F81933521" />
         <meta name="yandex-verification" content="69cf6376aadb1033" />
